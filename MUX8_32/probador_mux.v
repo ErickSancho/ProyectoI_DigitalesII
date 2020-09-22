@@ -21,9 +21,20 @@ initial begin
     $dumpvars;
 
     valid_in <= 'b0;
-    data_in <= 'h2A;
+    data_in <= 'h00;
     @(posedge clk_4f);
-    //@(posedge clk_4f);
+    @(posedge clk_4f);
+    @(posedge clk_4f);
+    @(posedge clk_4f);
+    @(posedge clk_4f);
+    @(posedge clk_4f);
+
+
+    repeat (4) begin
+        @(posedge clk_4f);
+        valid_in <= 'b0;
+        data_in <= data_in + 'h2F;
+    end
 
     repeat (4) begin
         @(posedge clk_4f);
@@ -63,7 +74,7 @@ initial begin
 
     repeat (4) begin
         @(posedge clk_4f);
-        valid_in <= 'b0;
+        valid_in <= 'b11;
         data_in <= data_in + 'h9F;
     end
 
@@ -81,6 +92,9 @@ initial begin
 
     @(posedge clk_f);
     @(posedge clk_f);
+    @(posedge clk_f);
+    @(posedge clk_f);
+
 
     $finish;
 end
