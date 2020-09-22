@@ -3,12 +3,12 @@ module probador (
     output reg clk_2f,
     output reg reset_L,
     output reg selector,
-    output reg [31:0] data_in,
-    output reg valid_in,
-    input [31:0] data_out0,
-    input [31:0] data_out1,
-    input valid_out_0,
-    input valid_out_1);
+    output reg [31:0] data_in0,
+    output reg valid_in0,
+    output reg [31:0] data_in1,
+    output reg valid_in1,
+    input [31:0] data_out,
+    input valid_out);
 
     initial begin
         $dumpfile("mux.vcd");	// Nombre de archivo del "dump"
@@ -16,45 +16,49 @@ module probador (
 
         // valores iniciales
         reset_L <= 0;
-        valid_in <= 0;
-        data_in <= 32'b0;
+        valid_in0 <= 0;
+        valid_in1 <= 0;
+        data_in0 <= 32'b0;
+        data_in1 <= 32'b0;
 
-        @(posedge clk_2f);
+        @(posedge clk_f);
 
-        @(posedge clk_2f);
+        @(posedge clk_f);
 
-        @(posedge clk_2f);
+        @(posedge clk_f);
         reset_L <= 1;
 
-        @(posedge clk_2f);
-        data_in <= 'hEEEEEEEE; // numero 0xEEEEEEEE
-        valid_in <= 1;
+        @(posedge clk_f);
+        data_in0 <= 'hEEEEEEEE; // numero 0xEEEEEEEE
+        data_in1 <= 'hEEEEEEE0; // numero 0xEEEEEEE0
+        valid_in0 <= 1;
+        valid_in1 <= 1;
 
-        @(posedge clk_2f);
-        data_in <= data_in + 1;
-        valid_in <= 1;
+        @(posedge clk_f);
+        data_in0 <= data_in0 + 1;
+        data_in1 <= data_in1 + 1;
 
-        @(posedge clk_2f);
-        data_in <= data_in + 1;
-        valid_in <= 1;
+        @(posedge clk_f);
+        data_in0 <= data_in0 + 1;
+        data_in1 <= data_in1 + 1;
 
-        @(posedge clk_2f);
-        data_in <= data_in + 1;
-        valid_in <= 1;
+        @(posedge clk_f);
+        data_in0 <= data_in0 + 1;
+        data_in1 <= data_in1 + 1;
         
-        @(posedge clk_2f);
-        valid_in <= 0;
+        @(posedge clk_f);
+        valid_in0 <= 0;
+        valid_in1 <= 0;
 
-        @(posedge clk_2f);
+        @(posedge clk_f);
 
-        @(posedge clk_2f);
+        @(posedge clk_f);
 
-        @(posedge clk_2f);
+        @(posedge clk_f);
 
-        @(posedge clk_2f);
+        @(posedge clk_f);
 
-        @(posedge clk_2f);
-
+        @(posedge clk_f);
 
         $finish;
     end
@@ -70,8 +74,8 @@ module probador (
     initial selector <= 0;
 
     // El selector se hace 0 cuando el valid se hace uno.
-    always @ (valid_in) begin
-        if(valid_in == 1) begin
+    always @ (valid_in0) begin
+        if(valid_in0 == 1) begin
             selector = 0;
         end
     end
