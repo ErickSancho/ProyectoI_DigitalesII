@@ -1,5 +1,5 @@
-read_verilog demux_striping.v 
-hierarchy -check -top demux_striping
+read_verilog mux_unstriping.v 
+hierarchy -check -top mux_unstriping
 
 proc; opt; fsm; opt; memory; opt
 
@@ -11,4 +11,4 @@ abc -liberty cmos_cells.lib
 
 clean
 
-write_verilog demux_striping_E.v 
+write_verilog mux_unstriping_E.v 

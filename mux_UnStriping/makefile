@@ -14,4 +14,4 @@ autoinst:
 sed: 
 	yosys yosys1.ys
 yosys: sed
-	sed -i 's/demux_striping(/demux_striping_E(/' demux_striping_E.v
+	sed -i 's/mux_unstriping(/mux_unstriping_E(/' mux_unstriping_E.v

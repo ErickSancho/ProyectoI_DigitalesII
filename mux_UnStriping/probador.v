@@ -39,8 +39,16 @@ module probador (
         data_in1 <= data_in1 + 1;
 
         @(posedge clk_f);
+        valid_in0 <= 0;
+        valid_in1 <= 0;
+
+        @(posedge clk_f);
+
+        @(posedge clk_f);
         data_in0 <= data_in0 + 1;
         data_in1 <= data_in1 + 1;
+        valid_in0 <= 1;
+        valid_in1 <= 1;
 
         @(posedge clk_f);
         data_in0 <= data_in0 + 1;
@@ -49,10 +57,6 @@ module probador (
         @(posedge clk_f);
         valid_in0 <= 0;
         valid_in1 <= 0;
-
-        @(posedge clk_f);
-
-        @(posedge clk_f);
 
         @(posedge clk_f);
 
