@@ -1,0 +1,507 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Wolf <claire@symbioticeda.com>          |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.9+3565 (git sha1 474cd02e, gcc 9.3.0-10ubuntu2 -fPIC -Os)
+
+
+-- Executing script file `script_demux.ys' --
+
+1. Executing Verilog-2005 frontend: Mux8_32.v
+Parsing Verilog input from `Mux8_32.v' to AST representation.
+Generating RTLIL representation for module `\Mux8_32'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \Mux8_32
+
+2.2. Analyzing design hierarchy..
+Top module:  \Mux8_32
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$Mux8_32.v:66$15 in module Mux8_32.
+Marked 4 switch rules as full_case in process $proc$Mux8_32.v:41$10 in module Mux8_32.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 2 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\Mux8_32.$proc$Mux8_32.v:10$17'.
+  Set init value: \counter = 3'000
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\Mux8_32.$proc$Mux8_32.v:10$17'.
+Creating decoders for process `\Mux8_32.$proc$Mux8_32.v:66$15'.
+     1/2: $0\valid_out[0:0]
+     2/2: $0\data_out[31:0]
+Creating decoders for process `\Mux8_32.$proc$Mux8_32.v:41$10'.
+     1/8: $0\buffer[31:0] [31:24]
+     2/8: $0\buffer[31:0] [23:16]
+     3/8: $0\buffer[31:0] [15:8]
+     4/8: $0\buffer[31:0] [7:0]
+     5/8: $0\flag[0:0]
+     6/8: $0\A3[7:0]
+     7/8: $0\A2[7:0]
+     8/8: $0\A1[7:0]
+Creating decoders for process `\Mux8_32.$proc$Mux8_32.v:18$3'.
+     1/1: $0\counter[2:0]
+Creating decoders for process `\Mux8_32.$proc$Mux8_32.v:13$1'.
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\Mux8_32.\notclk_4f' from process `\Mux8_32.$proc$Mux8_32.v:13$1'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\Mux8_32.\data_out' using process `\Mux8_32.$proc$Mux8_32.v:66$15'.
+  created $dff cell `$procdff$108' with positive edge clock.
+Creating register for signal `\Mux8_32.\valid_out' using process `\Mux8_32.$proc$Mux8_32.v:66$15'.
+  created $dff cell `$procdff$109' with positive edge clock.
+Creating register for signal `\Mux8_32.\A1' using process `\Mux8_32.$proc$Mux8_32.v:41$10'.
+  created $dff cell `$procdff$110' with positive edge clock.
+Creating register for signal `\Mux8_32.\A2' using process `\Mux8_32.$proc$Mux8_32.v:41$10'.
+  created $dff cell `$procdff$111' with positive edge clock.
+Creating register for signal `\Mux8_32.\A3' using process `\Mux8_32.$proc$Mux8_32.v:41$10'.
+  created $dff cell `$procdff$112' with positive edge clock.
+Creating register for signal `\Mux8_32.\buffer' using process `\Mux8_32.$proc$Mux8_32.v:41$10'.
+  created $dff cell `$procdff$113' with positive edge clock.
+Creating register for signal `\Mux8_32.\flag' using process `\Mux8_32.$proc$Mux8_32.v:41$10'.
+  created $dff cell `$procdff$114' with positive edge clock.
+Creating register for signal `\Mux8_32.\counter' using process `\Mux8_32.$proc$Mux8_32.v:18$3'.
+  created $dff cell `$procdff$115' with positive edge clock.
+
+3.9. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `Mux8_32.$proc$Mux8_32.v:10$17'.
+Found and cleaned up 1 empty switch in `\Mux8_32.$proc$Mux8_32.v:66$15'.
+Removing empty process `Mux8_32.$proc$Mux8_32.v:66$15'.
+Found and cleaned up 4 empty switches in `\Mux8_32.$proc$Mux8_32.v:41$10'.
+Removing empty process `Mux8_32.$proc$Mux8_32.v:41$10'.
+Found and cleaned up 3 empty switches in `\Mux8_32.$proc$Mux8_32.v:18$3'.
+Removing empty process `Mux8_32.$proc$Mux8_32.v:18$3'.
+Removing empty process `Mux8_32.$proc$Mux8_32.v:13$1'.
+Cleaned up 8 empty switches.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Mux8_32.
+<suppressed ~6 debug messages>
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Mux8_32'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \Mux8_32..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$102.
+Removed 1 multiplexer ports.
+<suppressed ~11 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \Mux8_32.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Mux8_32'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$115 ($dff) from module Mux8_32 (D = $procmux$104_Y [0], Q = \counter [0], rval = 1'0).
+Adding SRST signal on $procdff$115 ($dff) from module Mux8_32 (D = $procmux$102_Y [2:1], Q = \counter [2:1], rval = 2'00).
+Adding EN signal on $procdff$114 ($dff) from module Mux8_32 (D = $procmux$73_Y, Q = \flag).
+Adding EN signal on $procdff$112 ($dff) from module Mux8_32 (D = \data_in, Q = \A3).
+Adding EN signal on $procdff$113 ($dff) from module Mux8_32 (D = { \A1 \A2 \A3 \data_in }, Q = \buffer).
+Adding EN signal on $procdff$111 ($dff) from module Mux8_32 (D = \data_in, Q = \A2).
+Adding EN signal on $procdff$108 ($dff) from module Mux8_32 (D = \buffer, Q = \data_out).
+Adding EN signal on $procdff$110 ($dff) from module Mux8_32 (D = \data_in, Q = \A1).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Mux8_32..
+Removed 29 unused cells and 76 unused wires.
+<suppressed ~31 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Mux8_32.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \Mux8_32..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \Mux8_32.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Mux8_32'.
+<suppressed ~18 debug messages>
+Removed a total of 6 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Mux8_32..
+Removed 0 unused cells and 6 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Mux8_32.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \Mux8_32..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \Mux8_32.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Mux8_32'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Mux8_32..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Mux8_32.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Executing FSM pass (extract and optimize FSM).
+
+5.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+5.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+5.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+5.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Mux8_32..
+
+5.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+5.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+5.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+5.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+6. Executing OPT pass (performing simple optimizations).
+
+6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Mux8_32.
+
+6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Mux8_32'.
+Removed a total of 0 cells.
+
+6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \Mux8_32..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \Mux8_32.
+Performed a total of 0 changes.
+
+6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Mux8_32'.
+Removed a total of 0 cells.
+
+6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Mux8_32..
+
+6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Mux8_32.
+
+6.9. Finished OPT passes. (There is nothing left to do.)
+
+7. Executing MEMORY pass.
+
+7.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+7.2. Executing MEMORY_DFF pass (merging $dff cells to $memrd and $memwr).
+
+7.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Mux8_32..
+
+7.4. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+7.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Mux8_32..
+
+7.6. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+7.7. Executing MEMORY_MAP pass (converting $mem cells to logic and flip-flops).
+
+8. Executing OPT pass (performing simple optimizations).
+
+8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Mux8_32.
+
+8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Mux8_32'.
+Removed a total of 0 cells.
+
+8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \Mux8_32..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \Mux8_32.
+Performed a total of 0 changes.
+
+8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Mux8_32'.
+Removed a total of 0 cells.
+
+8.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Mux8_32..
+
+8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Mux8_32.
+
+8.9. Finished OPT passes. (There is nothing left to do.)
+
+9. Executing TECHMAP pass (map to technology primitives).
+
+9.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+9.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $sdff.
+Using extmapper simplemap for cells of type $reduce_or.
+Running "alumacc" on wrapper $extern:wrap:$add:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=32:Y_WIDTH=32:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$add:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=32:Y_WIDTH=32:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$add:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=32:Y_WIDTH=32:394426c56d1a028ba8fdd5469b163e04011def47.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $dffe.
+Using extmapper simplemap for cells of type $dff.
+Using extmapper simplemap for cells of type $reduce_and.
+Using template $paramod\_90_alu\A_SIGNED=0\B_SIGNED=0\A_WIDTH=3\B_WIDTH=32\Y_WIDTH=32 for cells of type $alu.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $and.
+Using template $paramod\_90_lcu\WIDTH=32 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using extmapper simplemap for cells of type $or.
+No more expansions possible.
+<suppressed ~402 debug messages>
+
+10. Executing OPT pass (performing simple optimizations).
+
+10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Mux8_32.
+<suppressed ~324 debug messages>
+
+10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Mux8_32'.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
+
+10.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \Mux8_32..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+10.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \Mux8_32.
+Performed a total of 0 changes.
+
+10.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Mux8_32'.
+Removed a total of 0 cells.
+
+10.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Mux8_32..
+Removed 4 unused cells and 161 unused wires.
+<suppressed ~5 debug messages>
+
+10.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Mux8_32.
+
+10.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+10.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \Mux8_32..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+10.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \Mux8_32.
+Performed a total of 0 changes.
+
+10.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Mux8_32'.
+Removed a total of 0 cells.
+
+10.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Mux8_32..
+
+10.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Mux8_32.
+
+10.16. Finished OPT passes. (There is nothing left to do.)
+
+11. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell DFF (noninv, pins=3, area=18.00) is a direct match for cell type $_DFF_P_.
+  cell DFFSR (noninv, pins=5, area=18.00) is a direct match for cell type $_DFFSR_PPP_.
+  final dff cell mappings:
+    unmapped dff cell: $_DFF_N_
+    \DFF _DFF_P_ (.C( C), .D( D), .Q( Q));
+    unmapped dff cell: $_DFF_NN0_
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    unmapped dff cell: $_DFF_PN0_
+    unmapped dff cell: $_DFF_PN1_
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    unmapped dff cell: $_DFFSR_NNN_
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    unmapped dff cell: $_DFFSR_PNN_
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    \DFFSR _DFFSR_PPP_ (.C( C), .D( D), .Q( Q), .R( R), .S( S));
+
+11.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+Mapping DFF cells in module `\Mux8_32':
+  mapped 93 $_DFF_P_ cells to \DFF cells.
+
+12. Executing ABC pass (technology mapping using ABC).
+
+12.1. Extracting gate netlist of module `\Mux8_32' to `<abc-temp-dir>/input.blif'..
+Extracted 124 gates and 228 wires to a netlist network with 102 inputs and 95 outputs.
+
+12.1.1. Executing ABC.
+Running ABC command: <yosys-exe-dir>/yosys-abc -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /home/erick/Escritorio/Proyectos_Digitales_II/Proyecto_1/src/MUX8_32/cmos_cells.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.00 sec
+ABC: Warning: Templates are not defined.
+ABC: Libery parser cannot read "time_unit".  Assuming   time_unit : "1ns".
+ABC: Libery parser cannot read "capacitive_load_unit". Assuming   capacitive_load_unit(1, pf).
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFSR".
+ABC: Library "demo" from "/home/erick/Escritorio/Proyectos_Digitales_II/Proyecto_1/src/MUX8_32/cmos_cells.lib" has 4 cells (2 skipped: 2 seq; 0 tri-state; 0 no func; 0 dont_use).  Time =     0.00 sec
+ABC: Memory =    0.00 MB. Time =     0.00 sec
+ABC: + strash 
+ABC: + ifraig 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+12.1.2. Re-integrating ABC results.
+ABC RESULTS:              NAND cells:      277
+ABC RESULTS:               NOR cells:       12
+ABC RESULTS:               NOT cells:        9
+ABC RESULTS:        internal signals:       31
+ABC RESULTS:           input signals:      102
+ABC RESULTS:          output signals:       95
+Removing temp directory.
+Removed 0 unused cells and 224 unused wires.
+
+13. Executing Verilog backend.
+Dumping module `\Mux8_32'.
+
+End of script. Logfile hash: 441b861a73, CPU: user 0.17s system 0.00s, MEM: 15.46 MB peak
+Yosys 0.9+3565 (git sha1 474cd02e, gcc 9.3.0-10ubuntu2 -fPIC -Os)
+Time spent: 33% 1x abc (0 sec), 21% 2x write_verilog (0 sec), ...
