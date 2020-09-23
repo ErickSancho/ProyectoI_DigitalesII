@@ -58,31 +58,31 @@ Found init rule in `\Demux32_8.$proc$Demux32_8.v:10$16'.
 
 3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
 Creating decoders for process `\Demux32_8.$proc$Demux32_8.v:10$16'.
-Creating decoders for process `\Demux32_8.$proc$Demux32_8.v:40$10'.
+Creating decoders for process `\Demux32_8.$proc$Demux32_8.v:39$10'.
      1/2: $0\valid_out[0:0]
      2/2: $0\data_out[7:0]
-Creating decoders for process `\Demux32_8.$proc$Demux32_8.v:16$3'.
+Creating decoders for process `\Demux32_8.$proc$Demux32_8.v:15$3'.
      1/1: $0\counter[2:0]
-Creating decoders for process `\Demux32_8.$proc$Demux32_8.v:14$1'.
+Creating decoders for process `\Demux32_8.$proc$Demux32_8.v:13$1'.
 
 3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
-No latch inferred for signal `\Demux32_8.\notclk_4f' from process `\Demux32_8.$proc$Demux32_8.v:14$1'.
+No latch inferred for signal `\Demux32_8.\notclk_4f' from process `\Demux32_8.$proc$Demux32_8.v:13$1'.
 
 3.8. Executing PROC_DFF pass (convert process syncs to FFs).
-Creating register for signal `\Demux32_8.\data_out' using process `\Demux32_8.$proc$Demux32_8.v:40$10'.
+Creating register for signal `\Demux32_8.\data_out' using process `\Demux32_8.$proc$Demux32_8.v:39$10'.
   created $dff cell `$procdff$43' with positive edge clock.
-Creating register for signal `\Demux32_8.\valid_out' using process `\Demux32_8.$proc$Demux32_8.v:40$10'.
+Creating register for signal `\Demux32_8.\valid_out' using process `\Demux32_8.$proc$Demux32_8.v:39$10'.
   created $dff cell `$procdff$44' with positive edge clock.
-Creating register for signal `\Demux32_8.\counter' using process `\Demux32_8.$proc$Demux32_8.v:16$3'.
+Creating register for signal `\Demux32_8.\counter' using process `\Demux32_8.$proc$Demux32_8.v:15$3'.
   created $dff cell `$procdff$45' with positive edge clock.
 
 3.9. Executing PROC_CLEAN pass (remove empty switches from decision trees).
 Removing empty process `Demux32_8.$proc$Demux32_8.v:10$16'.
-Found and cleaned up 5 empty switches in `\Demux32_8.$proc$Demux32_8.v:40$10'.
-Removing empty process `Demux32_8.$proc$Demux32_8.v:40$10'.
-Found and cleaned up 3 empty switches in `\Demux32_8.$proc$Demux32_8.v:16$3'.
-Removing empty process `Demux32_8.$proc$Demux32_8.v:16$3'.
-Removing empty process `Demux32_8.$proc$Demux32_8.v:14$1'.
+Found and cleaned up 5 empty switches in `\Demux32_8.$proc$Demux32_8.v:39$10'.
+Removing empty process `Demux32_8.$proc$Demux32_8.v:39$10'.
+Found and cleaned up 3 empty switches in `\Demux32_8.$proc$Demux32_8.v:15$3'.
+Removing empty process `Demux32_8.$proc$Demux32_8.v:15$3'.
+Removing empty process `Demux32_8.$proc$Demux32_8.v:13$1'.
 Cleaned up 8 empty switches.
 
 4. Executing OPT pass (performing simple optimizations).
@@ -442,14 +442,14 @@ Running ABC command: <yosys-exe-dir>/yosys-abc -s -f <abc-temp-dir>/abc.script 2
 ABC: ABC command line: "source <abc-temp-dir>/abc.script".
 ABC: 
 ABC: + read_blif <abc-temp-dir>/input.blif 
-ABC: + read_lib -w /home/erick/Documentos/UCR/UCR_2020/II-2020/Digitales_II/Tareas/Proyecto_1/src/DEMUX32_8/cmos_cells.lib 
+ABC: + read_lib -w /home/erick/Escritorio/Proyectos_Digitales_II/Proyecto_1/src/DEMUX32_8/cmos_cells.lib 
 ABC: Parsing finished successfully.  Parsing time =     0.00 sec
 ABC: Warning: Templates are not defined.
 ABC: Libery parser cannot read "time_unit".  Assuming   time_unit : "1ns".
 ABC: Libery parser cannot read "capacitive_load_unit". Assuming   capacitive_load_unit(1, pf).
 ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF".
 ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFSR".
-ABC: Library "demo" from "/home/erick/Documentos/UCR/UCR_2020/II-2020/Digitales_II/Tareas/Proyecto_1/src/DEMUX32_8/cmos_cells.lib" has 4 cells (2 skipped: 2 seq; 0 tri-state; 0 no func; 0 dont_use).  Time =     0.00 sec
+ABC: Library "demo" from "/home/erick/Escritorio/Proyectos_Digitales_II/Proyecto_1/src/DEMUX32_8/cmos_cells.lib" has 4 cells (2 skipped: 2 seq; 0 tri-state; 0 no func; 0 dont_use).  Time =     0.00 sec
 ABC: Memory =    0.00 MB. Time =     0.00 sec
 ABC: + strash 
 ABC: + ifraig 
@@ -477,6 +477,6 @@ Removed 0 unused cells and 101 unused wires.
 13. Executing Verilog backend.
 Dumping module `\Demux32_8'.
 
-End of script. Logfile hash: 729e8ccba6, CPU: user 0.12s system 0.01s, MEM: 15.32 MB peak
+End of script. Logfile hash: b19a8feb51, CPU: user 0.18s system 0.00s, MEM: 15.09 MB peak
 Yosys 0.9+3565 (git sha1 474cd02e, gcc 9.3.0-10ubuntu2 -fPIC -Os)
-Time spent: 38% 1x abc (0 sec), 13% 12x opt_expr (0 sec), ...
+Time spent: 41% 1x abc (0 sec), 13% 12x opt_expr (0 sec), ...

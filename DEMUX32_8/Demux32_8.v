@@ -11,6 +11,7 @@ reg [2:0] counter = 'b0; //Defino un contador par seleccionar de un miltilexor d
 
 reg notclk_4f;      //Creo una senal del reloj clk_4f negado para evitar emplear negedge
 always @(*)begin notclk_4f<=~clk_4f; end
+
 always @(posedge notclk_4f) begin
     if (valid_in == 1) begin
         counter<=counter + 'b001;
@@ -23,33 +24,22 @@ always @(posedge notclk_4f) begin
     end
 end
 
-wire [7:0] C1;
-wire [7:0] C2;
-wire [7:0] C3;
-wire [7:0] C4;
-
-assign C1 = data_in[7:0];
-assign C2 = data_in[15:8];
-assign C3 = data_in[23:16];
-assign C4 = data_in[31:24];
-
-
 //Salida del mux empleando una especie de multiplexor de 4:1 de 8 bits 
 always @(posedge clk_4f) begin
     if ({counter[2], counter[1],counter[0]} == 'b100) begin
-        data_out <= C1;
+        data_out <= data_in[7:0];
         valid_out <= 'b1;
     end
     if ({counter[2], counter[1],counter[0]} == 'b011) begin
-        data_out <= C2;
+        data_out <= data_in[15:8];
         valid_out <= 'b1;
     end
     if ({counter[2], counter[1],counter[0]} == 'b010) begin
-        data_out <= C3;
+        data_out <= data_in[23:16];
         valid_out <= 'b1;
     end
     if ({counter[2], counter[1],counter[0]} == 'b001) begin
-        data_out <= C4;
+        data_out <= data_in[31:24];
         valid_out <= 'b1;
     end
     if (valid_in == 0) begin
