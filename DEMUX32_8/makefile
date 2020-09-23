@@ -4,3 +4,7 @@ Compilar:
 	@sed -i 's/Demux32_8/Demux32_8_synth/g' Demux32_8_synth.v
 	@iverilog $(INCLUDES) -o Demux 
 	@vvp Demux
+
+ver:
+	@nohup gtkwave resultados.vcd &
+	@rm -f nohup.out
