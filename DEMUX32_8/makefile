@@ -6,5 +6,5 @@ Compilar:
 	@vvp Demux
 
 ver:
-	@nohup gtkwave resultados.vcd &
+	@nohup gtkwave resultados32_8.vcd &
 	@rm -f nohup.out

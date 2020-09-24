@@ -16,7 +16,7 @@ initial clk_4f <= 'b1;      //Defino el reloj x4
 always #(T/4) clk_4f <= ~clk_4f;
 
 initial begin
-    $dumpfile("resultados.vcd");
+    $dumpfile("resultados32_8.vcd");
     $dumpvars;
 
     valid_in <= 'b0;

@@ -8,5 +8,5 @@ Compilar:
 	@vvp Mux
 
 ver:
-	@nohup gtkwave resultados.vcd &
+	@nohup gtkwave resultados8_32.vcd &
 	@rm -f nohup.out

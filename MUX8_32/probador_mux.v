@@ -17,7 +17,7 @@ always #(T/4) clk_4f <= ~clk_4f;
 
 
 initial begin
-    $dumpfile("resultados.vcd");
+    $dumpfile("resultados8_32.vcd");
     $dumpvars;
 
     valid_in <= 'b0;
