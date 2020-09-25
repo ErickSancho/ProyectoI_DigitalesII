@@ -10,7 +10,7 @@ module Demux32_8(
 reg [2:0] counter = 'b0; //Defino un contador par seleccionar de un miltilexor de 4:1 de 8 bits
 
 reg notclk_4f;      //Creo una senal del reloj clk_4f negado para evitar emplear negedge
-always @(*)begin notclk_4f<=~clk_4f; end
+always @(*)begin notclk_4f = ~clk_4f; end
 
 always @(posedge notclk_4f) begin
     if (valid_in == 1) begin
