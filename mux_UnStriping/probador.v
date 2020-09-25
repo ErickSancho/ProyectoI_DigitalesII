@@ -2,7 +2,6 @@ module probador (
     output reg clk_f,
     output reg clk_2f,
     output reg reset_L,
-    output reg selector,
     output reg [31:0] data_in0,
     output reg valid_in0,
     output reg [31:0] data_in1,
@@ -73,17 +72,5 @@ module probador (
 
     always #20 clk_f <= ~clk_f; //hace toggle cada 20 nanosegundos
     always #10 clk_2f <= ~clk_2f; //hace toggle cada 10 nanosegundos
-
-    // selector
-    initial selector <= 0;
-
-    // El selector se hace 0 cuando el valid se hace uno.
-    always @ (valid_in0) begin
-        if(valid_in0 == 1) begin
-            selector = 0;
-        end
-    end
-
-    always #20 selector <= ~selector; // hace toggle a la misma frecuencia que clk_f
 
 endmodule

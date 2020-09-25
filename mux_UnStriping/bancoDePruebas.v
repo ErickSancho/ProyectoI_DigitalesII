@@ -16,7 +16,6 @@ module BancoPruebas;
 			 // Inputs
 			 .clk_2f		(clk_2f),
 			 .reset_L		(reset_L),
-			 .selector		(selector),
 			 .data_in0		(data_in0[31:0]),
 			 .valid_in0		(valid_in0),
 			 .data_in1		(data_in1[31:0]),
@@ -31,7 +30,6 @@ module BancoPruebas;
 			      .data_in0		(data_in0[31:0]),
 			      .data_in1		(data_in1[31:0]),
 			      .reset_L		(reset_L),
-			      .selector		(selector),
 			      .valid_in0	(valid_in0),
 			      .valid_in1	(valid_in1));
 
@@ -40,7 +38,6 @@ module BancoPruebas;
 			.clk_f		(clk_f),
 			.clk_2f		(clk_2f),
 			.reset_L	(reset_L),
-			.selector	(selector),
 			.data_in0	(data_in0[31:0]),
 			.valid_in0	(valid_in0),
 			.data_in1	(data_in1[31:0]),
