@@ -12,7 +12,7 @@ reg [2:0] counter = 'b0;    //Defino un contador para almacenar los datos confor
 
 reg notclk_4f;      //Creo una senal del reloj clk_4f negado para evitar emplear negedge
 always @(*)begin 
-    notclk_4f<=~clk_4f; 
+    notclk_4f = ~clk_4f; 
 end
 
 //Actualizo el contador empleando el flanco negativo del reloj de 4 veces la frecuencia f, cuando el valid de entrada se encuentra en alto.
