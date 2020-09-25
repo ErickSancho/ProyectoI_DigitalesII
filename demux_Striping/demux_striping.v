@@ -1,7 +1,6 @@
 module demux_striping (
     input clk_2f,
     input reset_L,
-    input selector,
     input [31:0] data_in,
     input valid_in,
     output reg [31:0] data_out0,
@@ -9,15 +8,16 @@ module demux_striping (
     output reg valid_out_0,
     output reg valid_out_1);
 
-    reg selectorInterno = 0;
+    reg selectorInterno;
 
     always @ (posedge clk_2f) begin
 
-        if (reset_L == 0) begin // Ambas salidas serian puros ceros 
+        if (reset_L == 0) begin
             data_out0 <= 32'b0;
             data_out1 <= 32'b0; 
             valid_out_0 <= 0;
             valid_out_1 <= 0;
+            selectorInterno <= 0;
         end
 
         else begin
@@ -26,7 +26,7 @@ module demux_striping (
                 data_out0 <= data_in;
                 valid_out_0 <= valid_in;
                 if (valid_in == 1) begin
-                    selectorInterno <= ~selectorInterno;
+                    selectorInterno <= ~selectorInterno; // El selector solo cambia cuando "saca" algo valido
                 end
             end
 
@@ -41,6 +41,5 @@ module demux_striping (
         end 
 
     end
-
 
 endmodule

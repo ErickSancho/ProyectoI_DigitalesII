@@ -18,7 +18,6 @@ module BancoPruebas;
 			 // Inputs
 			 .clk_2f		(clk_2f),
 			 .reset_L		(reset_L),
-			 .selector		(selector),
 			 .data_in		(data_in[31:0]),
 			 .valid_in		(valid_in));
 
@@ -32,7 +31,6 @@ module BancoPruebas;
 			      .clk_2f		(clk_2f),
 			      .data_in		(data_in[31:0]),
 			      .reset_L		(reset_L),
-			      .selector		(selector),
 			      .valid_in		(valid_in));
 
     probador probador_ (/*AUTOINST*/
@@ -40,7 +38,6 @@ module BancoPruebas;
 			.clk_f		(clk_f),
 			.clk_2f		(clk_2f),
 			.reset_L	(reset_L),
-			.selector	(selector),
 			.data_in	(data_in[31:0]),
 			.valid_in	(valid_in),
 			// Inputs
