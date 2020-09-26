@@ -5,6 +5,8 @@ module Banco;
 wire clk_4f;
 wire clk_32f;
 wire data_in;
+wire reset;
+
 wire [7:0] data_out;
 wire valid_out;
 wire active;
@@ -19,7 +21,8 @@ Serial_Paralelo Cond(
     .active (active),
     .clk_4f (clk_4f),
     .clk_32f (clk_32f),
-    .data_in (data_in)
+    .data_in (data_in),
+    .reset (reset)
 );
 
 Serial_Paralelo_synth Synt(
@@ -28,7 +31,8 @@ Serial_Paralelo_synth Synt(
     .active (active_synth),
     .clk_4f (clk_4f),
     .clk_32f (clk_32f),
-    .data_in (data_in)
+    .data_in (data_in),
+    .reset (reset)
 );
 
 probador_SP test(
@@ -40,7 +44,8 @@ probador_SP test(
     .active (active),
     .data_out_synth (data_out_synth),
     .valid_out_synth (valid_out_synth),
-    .active_synth (active_synth)
+    .active_synth (active_synth),
+    .reset (reset)
 );
 
 endmodule

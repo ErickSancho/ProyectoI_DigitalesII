@@ -7,7 +7,8 @@ module probador_SP(
     input active_synth,
     output reg clk_4f,
     output reg clk_32f,
-    output reg data_in
+    output reg data_in,
+    output reg reset
 );
 
 //integer T = 20;             //Defino un multiplicador
@@ -23,12 +24,13 @@ initial begin
     $dumpvars;
 
     data_in<='b0;
+    reset<='b0;
     @(posedge clk_32f);
     @(posedge clk_32f);
     @(posedge clk_32f);
     @(posedge clk_32f);
     //@(posedge clk_32f);
-    
+    reset<='b1;
 
     //Envio el codigo HEX(BC) 4 veces
     repeat (4) begin
@@ -69,7 +71,7 @@ initial begin
     @(posedge clk_32f);
     data_in <= 'b1;
     @(posedge clk_32f);
-    data_in <= 'b1;
+    data_in <= 'b0;
     @(posedge clk_32f);
     data_in <= 'b1;
     @(posedge clk_32f);
@@ -79,9 +81,9 @@ initial begin
     @(posedge clk_32f);
     data_in <= 'b1;
     @(posedge clk_32f);
-    data_in <= 'b1;
+    data_in <= 'b0;
     @(posedge clk_32f);
-    data_in <= 'b1;
+    data_in <= 'b0;
     
     repeat (3) begin
         @(posedge clk_32f);

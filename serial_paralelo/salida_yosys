@@ -44,7 +44,8 @@ Removed 0 unused modules.
 Cleaned up 0 empty switches.
 
 3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
-Marked 7 switch rules as full_case in process $proc$Serial_Paralelo.v:34$4 in module Serial_Paralelo.
+Marked 2 switch rules as full_case in process $proc$Serial_Paralelo.v:61$15 in module Serial_Paralelo.
+Marked 4 switch rules as full_case in process $proc$Serial_Paralelo.v:34$4 in module Serial_Paralelo.
 Removed a total of 0 dead cases.
 
 3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
@@ -56,57 +57,57 @@ Promoted 9 assignments to connections.
 3.5. Executing PROC_ARST pass (detect async resets in processes).
 
 3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\Serial_Paralelo.$proc$Serial_Paralelo.v:61$15'.
+     1/2: $0\data_out[7:0]
+     2/2: $0\valid_out[0:0]
 Creating decoders for process `\Serial_Paralelo.$proc$Serial_Paralelo.v:34$4'.
-     1/4: $0\data_out[7:0]
-     2/4: $0\valid_out[0:0]
-     3/4: $0\counter[1:0]
-     4/4: $0\active[0:0]
-Creating decoders for process `\Serial_Paralelo.$proc$Serial_Paralelo.v:20$3'.
-Creating decoders for process `\Serial_Paralelo.$proc$Serial_Paralelo.v:16$1'.
+     1/2: $0\counter[1:0]
+     2/2: $0\active[0:0]
+Creating decoders for process `\Serial_Paralelo.$proc$Serial_Paralelo.v:21$3'.
+Creating decoders for process `\Serial_Paralelo.$proc$Serial_Paralelo.v:17$1'.
 
 3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
-No latch inferred for signal `\Serial_Paralelo.\not_clk' from process `\Serial_Paralelo.$proc$Serial_Paralelo.v:16$1'.
+No latch inferred for signal `\Serial_Paralelo.\not_clk' from process `\Serial_Paralelo.$proc$Serial_Paralelo.v:17$1'.
 
 3.8. Executing PROC_DFF pass (convert process syncs to FFs).
-Creating register for signal `\Serial_Paralelo.\data_out' using process `\Serial_Paralelo.$proc$Serial_Paralelo.v:34$4'.
-  created $dff cell `$procdff$51' with positive edge clock.
-Creating register for signal `\Serial_Paralelo.\valid_out' using process `\Serial_Paralelo.$proc$Serial_Paralelo.v:34$4'.
-  created $dff cell `$procdff$52' with positive edge clock.
+Creating register for signal `\Serial_Paralelo.\data_out' using process `\Serial_Paralelo.$proc$Serial_Paralelo.v:61$15'.
+  created $dff cell `$procdff$61' with positive edge clock.
+Creating register for signal `\Serial_Paralelo.\valid_out' using process `\Serial_Paralelo.$proc$Serial_Paralelo.v:61$15'.
+  created $dff cell `$procdff$62' with positive edge clock.
 Creating register for signal `\Serial_Paralelo.\active' using process `\Serial_Paralelo.$proc$Serial_Paralelo.v:34$4'.
-  created $dff cell `$procdff$53' with positive edge clock.
+  created $dff cell `$procdff$63' with positive edge clock.
 Creating register for signal `\Serial_Paralelo.\counter' using process `\Serial_Paralelo.$proc$Serial_Paralelo.v:34$4'.
-  created $dff cell `$procdff$54' with positive edge clock.
-Creating register for signal `\Serial_Paralelo.\buffer' using process `\Serial_Paralelo.$proc$Serial_Paralelo.v:20$3'.
-  created $dff cell `$procdff$55' with positive edge clock.
+  created $dff cell `$procdff$64' with positive edge clock.
+Creating register for signal `\Serial_Paralelo.\buffer' using process `\Serial_Paralelo.$proc$Serial_Paralelo.v:21$3'.
+  created $dff cell `$procdff$65' with positive edge clock.
 
 3.9. Executing PROC_CLEAN pass (remove empty switches from decision trees).
-Found and cleaned up 8 empty switches in `\Serial_Paralelo.$proc$Serial_Paralelo.v:34$4'.
+Found and cleaned up 2 empty switches in `\Serial_Paralelo.$proc$Serial_Paralelo.v:61$15'.
+Removing empty process `Serial_Paralelo.$proc$Serial_Paralelo.v:61$15'.
+Found and cleaned up 6 empty switches in `\Serial_Paralelo.$proc$Serial_Paralelo.v:34$4'.
 Removing empty process `Serial_Paralelo.$proc$Serial_Paralelo.v:34$4'.
-Removing empty process `Serial_Paralelo.$proc$Serial_Paralelo.v:20$3'.
-Removing empty process `Serial_Paralelo.$proc$Serial_Paralelo.v:16$1'.
+Removing empty process `Serial_Paralelo.$proc$Serial_Paralelo.v:21$3'.
+Removing empty process `Serial_Paralelo.$proc$Serial_Paralelo.v:17$1'.
 Cleaned up 8 empty switches.
 
 4. Executing OPT pass (performing simple optimizations).
 
 4.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module Serial_Paralelo.
-<suppressed ~2 debug messages>
+<suppressed ~8 debug messages>
 
 4.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\Serial_Paralelo'.
-<suppressed ~9 debug messages>
-Removed a total of 3 cells.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
 
 4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \Serial_Paralelo..
   Creating internal representation of mux trees.
   Evaluating internal representation of mux trees.
-      Replacing known input bits on port B of cell $procmux$49: \active -> 1'1
   Analyzing evaluation results.
-    dead port 1/2 on $mux $procmux$35.
-    dead port 1/2 on $mux $procmux$26.
-Removed 2 multiplexer ports.
-<suppressed ~4 debug messages>
+Removed 0 multiplexer ports.
+<suppressed ~5 debug messages>
 
 4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \Serial_Paralelo.
@@ -117,20 +118,17 @@ Finding identical cells in module `\Serial_Paralelo'.
 Removed a total of 0 cells.
 
 4.6. Executing OPT_DFF pass (perform DFF optimizations).
-Adding SRST signal on $procdff$52 ($dff) from module Serial_Paralelo (D = $procmux$21_Y, Q = \valid_out, rval = 1'0).
-Adding SRST signal on $procdff$53 ($dff) from module Serial_Paralelo (D = $procmux$46_Y, Q = \active, rval = 1'1).
-Adding EN signal on $procdff$54 ($dff) from module Serial_Paralelo (D = $procmux$40_Y, Q = \counter).
-Adding SRST signal on $auto$opt_dff.cc:764:run$64 ($dffe) from module Serial_Paralelo (D = $procmux$37_Y, Q = \counter, rval = 2'00).
-Adding SRST signal on $procdff$51 ($dff) from module Serial_Paralelo (D = \buffer, Q = \data_out, rval = 8'00000000).
+Adding EN signal on $procdff$64 ($dff) from module Serial_Paralelo (D = $procmux$43_Y, Q = \counter).
+Adding SRST signal on $procdff$61 ($dff) from module Serial_Paralelo (D = \buffer, Q = \data_out, rval = 8'00000000).
+Adding SRST signal on $procdff$62 ($dff) from module Serial_Paralelo (D = $procmux$26_Y, Q = \valid_out, rval = 1'0).
 
 4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \Serial_Paralelo..
-Removed 7 unused cells and 33 unused wires.
-<suppressed ~9 debug messages>
+Removed 5 unused cells and 30 unused wires.
+<suppressed ~7 debug messages>
 
 4.8. Executing OPT_EXPR pass (perform const folding).
 Optimizing module Serial_Paralelo.
-<suppressed ~1 debug messages>
 
 4.9. Rerunning OPT passes. (Maybe there is more to do..)
 
@@ -140,7 +138,7 @@ Running muxtree optimizer on module \Serial_Paralelo..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~3 debug messages>
+<suppressed ~4 debug messages>
 
 4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \Serial_Paralelo.
@@ -169,7 +167,7 @@ Running muxtree optimizer on module \Serial_Paralelo..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~3 debug messages>
+<suppressed ~4 debug messages>
 
 4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \Serial_Paralelo.
@@ -223,7 +221,7 @@ Running muxtree optimizer on module \Serial_Paralelo..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~3 debug messages>
+<suppressed ~4 debug messages>
 
 6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \Serial_Paralelo.
@@ -277,7 +275,7 @@ Running muxtree optimizer on module \Serial_Paralelo..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~3 debug messages>
+<suppressed ~4 debug messages>
 
 8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \Serial_Paralelo.
@@ -327,28 +325,29 @@ Generating RTLIL representation for module `\_90_lut'.
 Successfully finished Verilog frontend.
 
 9.2. Continuing TECHMAP pass.
-Using extmapper simplemap for cells of type $reduce_and.
-Using extmapper simplemap for cells of type $not.
-Using extmapper simplemap for cells of type $eq.
-Using extmapper simplemap for cells of type $mux.
-Using extmapper simplemap for cells of type $sdff.
-Using extmapper simplemap for cells of type $reduce_bool.
-Using extmapper simplemap for cells of type $sdffce.
-Using extmapper simplemap for cells of type $dff.
 Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $dffe.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $sdff.
+Using extmapper simplemap for cells of type $ne.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $dff.
+Using extmapper simplemap for cells of type $not.
 No more expansions possible.
-<suppressed ~85 debug messages>
+<suppressed ~94 debug messages>
 
 10. Executing OPT pass (performing simple optimizations).
 
 10.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module Serial_Paralelo.
-<suppressed ~27 debug messages>
+<suppressed ~28 debug messages>
 
 10.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\Serial_Paralelo'.
-<suppressed ~12 debug messages>
-Removed a total of 4 cells.
+<suppressed ~15 debug messages>
+Removed a total of 5 cells.
 
 10.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \Serial_Paralelo..
@@ -368,8 +367,8 @@ Removed a total of 0 cells.
 
 10.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \Serial_Paralelo..
-Removed 1 unused cells and 17 unused wires.
-<suppressed ~2 debug messages>
+Removed 3 unused cells and 18 unused wires.
+<suppressed ~4 debug messages>
 
 10.8. Executing OPT_EXPR pass (perform const folding).
 Optimizing module Serial_Paralelo.
@@ -430,7 +429,7 @@ Mapping DFF cells in module `\Serial_Paralelo':
 12. Executing ABC pass (technology mapping using ABC).
 
 12.1. Extracting gate netlist of module `\Serial_Paralelo' to `<abc-temp-dir>/input.blif'..
-Extracted 49 gates and 64 wires to a netlist network with 12 inputs and 20 outputs.
+Extracted 58 gates and 74 wires to a netlist network with 13 inputs and 20 outputs.
 
 12.1.1. Executing ABC.
 Running ABC command: <yosys-exe-dir>/yosys-abc -s -f <abc-temp-dir>/abc.script 2>&1
@@ -460,18 +459,18 @@ ABC: + &put
 ABC: + write_blif <abc-temp-dir>/output.blif 
 
 12.1.2. Re-integrating ABC results.
-ABC RESULTS:              NAND cells:       17
-ABC RESULTS:               NOR cells:       18
-ABC RESULTS:               NOT cells:       24
-ABC RESULTS:        internal signals:       32
-ABC RESULTS:           input signals:       12
+ABC RESULTS:              NAND cells:       16
+ABC RESULTS:               NOR cells:       15
+ABC RESULTS:               NOT cells:       23
+ABC RESULTS:        internal signals:       41
+ABC RESULTS:           input signals:       13
 ABC RESULTS:          output signals:       20
 Removing temp directory.
-Removed 0 unused cells and 56 unused wires.
+Removed 0 unused cells and 64 unused wires.
 
 13. Executing Verilog backend.
 Dumping module `\Serial_Paralelo'.
 
-End of script. Logfile hash: 91fcf04e00, CPU: user 0.08s system 0.01s, MEM: 13.55 MB peak
+End of script. Logfile hash: febd7aaecf, CPU: user 0.11s system 0.00s, MEM: 13.29 MB peak
 Yosys 0.9+3565 (git sha1 474cd02e, gcc 9.3.0-10ubuntu2 -fPIC -Os)
-Time spent: 46% 1x abc (0 sec), 13% 11x opt_expr (0 sec), ...
+Time spent: 50% 1x abc (0 sec), 13% 11x opt_expr (0 sec), ...
