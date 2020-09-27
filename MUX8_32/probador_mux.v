@@ -3,6 +3,7 @@ module probador(
     output reg clk_4f,
     output reg [7:0] data_in,
     output reg valid_in,
+    output reg reset,
     input [31:0] data_out,
     input valid_out,
     input [31:0] data_out_synth,
@@ -22,6 +23,7 @@ initial begin
 
     valid_in <= 'b0;
     data_in <= 'h00;
+    reset <= 'b0;
     @(posedge clk_4f);
     @(posedge clk_4f);
     @(posedge clk_4f);
@@ -32,60 +34,70 @@ initial begin
 
     repeat (4) begin
         @(posedge clk_4f);
-        valid_in <= 'b0;
+        valid_in <= 'b1;
+        reset <= 'b1;
         data_in <= data_in + 'h2F;
     end
 
     repeat (4) begin
         @(posedge clk_4f);
+        reset <= 'b1;
         valid_in <= 'b1;
         data_in <= data_in + 'h2F;
     end
 
     repeat (4) begin
         @(posedge clk_4f);
+        reset <= 'b1;
         valid_in <= 'b0;
         data_in <= data_in + 'hFF;
     end
 
     repeat (4) begin
         @(posedge clk_4f);
+        reset <= 'b1;
         valid_in <= 'b1;
         data_in <= data_in + 'h37;
     end
 
     repeat (4) begin
         @(posedge clk_4f);
+        reset <= 'b1;
         valid_in <= 'b1;
         data_in <= data_in + 'h8A;
     end
 
     repeat (4) begin
         @(posedge clk_4f);
+        reset <= 'b1;
         valid_in <= 'b0;
         data_in <= data_in + 'h56;
     end
 
     repeat (4) begin
         @(posedge clk_4f);
+        reset <= 'b1;
         valid_in <= 'b1;
         data_in <= data_in + 'h90;
     end
 
     repeat (4) begin
         @(posedge clk_4f);
-        valid_in <= 'b11;
+        reset <= 'b1;
+        valid_in <= 'b1;
         data_in <= data_in + 'h9F;
     end
 
     repeat (4) begin
         @(posedge clk_4f);
+        reset <= 'b1;
         valid_in <= 'b1;
         data_in <= data_in + 'h73;
     end
 
     repeat (4) begin
         @(posedge clk_4f);
+        reset <= 'b1;
         valid_in <= 'b0;
         data_in <= data_in + 'hA4;
     end
