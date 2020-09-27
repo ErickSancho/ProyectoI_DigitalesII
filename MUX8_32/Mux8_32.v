@@ -13,14 +13,9 @@ always @(*)begin
     notclk_4f = ~clk_4f; 
 end
 
-//Defino tres varibles que se emplean para almacenar las variables mientras
-reg [7:0] A1;
-reg [7:0] A2;
-reg [7:0] A3;
-
-//Actualizo el contador empleando el flanco negativo del reloj de 4 veces la frecuencia f, cuando el valid de entrada se encuentra en alto.
-//En el caso que la entre otro dato inmediatamente despues se reinicia el reloj en 1 y no en cero, y continua contando. 
-reg [31:0] mem;
+reg [31:0] mem; //Memoria de datos de entrada
+//En este bloque always nos basamos en el flanco positivo creado por el reloj notclk_4f, y empleamos a "mem" como un "shift register"
+//el cual va almacenando los datos de entrada.
 always @(posedge notclk_4f) begin
     if (valid_in == 'b1) begin
         mem[7:0] <= data_in;
@@ -33,9 +28,7 @@ always @(posedge notclk_4f) begin
     end
 end
 
-
-
-//Empleando los contadores almaceno los datos en la variables creadas, y el contador es == 4, cambio el valor de la salida.
+//En este bloque se cambia la salida en el flanco positivo del reloj clk_f, dentro del bloque se basa en la senal de reset y valid_in.
 always @(posedge clk_f) begin
     if (reset == 'b1 && valid_in == 'b1) begin
         data_out<=mem;
