@@ -30,7 +30,7 @@ always @(posedge not_clk) begin
     buffer[7] <= buffer[6];
 end
 
-
+//Defino un bloque que me actualiza el contador de BC y el active
 always @(posedge clk_32f) begin
     if (reset == 'b0) begin
         counter <= 'b0;
@@ -57,7 +57,7 @@ always @(posedge clk_32f) begin
 end
 
 
-//Defino un bloque que me actualiza el contador de BC
+//Defino un bloque que cambia la salida basado en el active 
 always @(posedge clk_4f) begin
     if (active == 'b1) begin
         if (buffer == 'hBC) begin
@@ -73,7 +73,6 @@ always @(posedge clk_4f) begin
         data_out<= 'b0;
         valid_out<= 'b0;
     end
-
 end
 
 
