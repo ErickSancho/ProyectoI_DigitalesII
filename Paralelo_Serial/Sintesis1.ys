@@ -1,0 +1,16 @@
+read_verilog module_PS.v
+hierarchy -check -top module_PS
+
+proc; opt; fsm; opt; memory; opt
+
+techmap; opt
+
+dfflibmap -liberty cmos_cells.lib
+
+abc -liberty cmos_cells.lib
+
+clean
+
+show
+
+write_verilog module_PS_Sint.v 
