@@ -29,12 +29,13 @@ initial begin
     @(posedge clk_32f);
     @(posedge clk_32f);
     @(posedge clk_32f);
-    //@(posedge clk_32f);
+    @(posedge clk_4f);
+    @(posedge clk_4f);
     reset<='b1;
 
     //Envio el codigo HEX(BC) 4 veces
     repeat (4) begin
-        @(posedge clk_32f);
+        //@(posedge clk_32f);
         data_in <= 'b1;
         @(posedge clk_32f);
         data_in <= 'b0;
@@ -50,6 +51,7 @@ initial begin
         data_in <= 'b0;
         @(posedge clk_32f);
         data_in <= 'b0;
+        @(posedge clk_32f);
     end
     
     repeat (16) begin

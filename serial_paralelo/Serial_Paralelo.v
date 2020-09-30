@@ -50,7 +50,7 @@ always @(posedge clk_32f) begin
             counter <= 'b0;
             active<='b1;
         end
-        else begin
+        else begin //Cualquier otro valor es cero
             counter <= 'b0;
         end
     end

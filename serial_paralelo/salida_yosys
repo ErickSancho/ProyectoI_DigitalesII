@@ -471,6 +471,6 @@ Removed 0 unused cells and 64 unused wires.
 13. Executing Verilog backend.
 Dumping module `\Serial_Paralelo'.
 
-End of script. Logfile hash: febd7aaecf, CPU: user 0.11s system 0.00s, MEM: 13.29 MB peak
+End of script. Logfile hash: febd7aaecf, CPU: user 0.08s system 0.00s, MEM: 13.38 MB peak
 Yosys 0.9+3565 (git sha1 474cd02e, gcc 9.3.0-10ubuntu2 -fPIC -Os)
-Time spent: 50% 1x abc (0 sec), 13% 11x opt_expr (0 sec), ...
+Time spent: 50% 1x abc (0 sec), 12% 11x opt_expr (0 sec), ...
