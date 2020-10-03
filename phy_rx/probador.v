@@ -20,13 +20,10 @@ module probador (
         data_in1 <= 0;
         reset <= 0;
 
-        @(posedge clk_32f);
-        @(posedge clk_32f);
-        @(posedge clk_32f);
-        @(posedge clk_32f);
-        @(posedge clk_32f);
-        @(posedge clk_32f);
-        @(posedge clk_32f);
+        repeat(95) begin
+            @(posedge clk_32f);
+        end
+
         @(posedge clk_32f);
         reset <= 1;
 
@@ -62,22 +59,28 @@ module probador (
         repeat (16) begin
             @(posedge clk_32f);
             data_in0 <= data_in0 + 'b1;
-            data_in1 <= data_in1 + 'b1;
+            // data_in1 <= data_in1 + 'b1;
+            data_in1 <= data_in0;
             @(posedge clk_32f);
             data_in0 <= data_in0 + 'b0;
-            data_in1 <= data_in1 + 'b0;
+            // data_in1 <= data_in1 + 'b0;
+            data_in1 <= data_in0;
             @(posedge clk_32f);
             data_in0 <= 'b0;
-            data_in1 <= 'b0;
+            // data_in1 <= 'b0;
+            data_in1 <= data_in0;
             @(posedge clk_32f);
             data_in0 <= 'b1;
-            data_in1 <= 'b1;
+            // data_in1 <= 'b1;
+            data_in1 <= data_in0;
             @(posedge clk_32f);
             data_in0 <='b0;
-            data_in1 <='b0;
+            // data_in1 <='b0;
+            data_in1 <= data_in0;
             @(posedge clk_32f);
             data_in0 <= data_in0+ data_in0;
-            data_in1 <= data_in1+ data_in1;
+            // data_in1 <= data_in1+ data_in1;
+            data_in1 <= data_in0;
         end
 
         // Se envia el codigo HEX(BC) SOLO UNA VEZ
@@ -110,33 +113,34 @@ module probador (
         repeat (16) begin
             @(posedge clk_32f);
             data_in0 <= data_in0 + 'b1;
-            data_in1 <= data_in1 + 'b1;
+            // data_in1 <= data_in1 + 'b1;
+            data_in1 <= data_in0;
             @(posedge clk_32f);
             data_in0 <= data_in0 + 'b0;
-            data_in1 <= data_in1 + 'b0;
+            // data_in1 <= data_in1 + 'b0;
+            data_in1 <= data_in0;
             @(posedge clk_32f);
             data_in0 <= 'b0;
-            data_in1 <= 'b0;
+            // data_in1 <= 'b0;
+            data_in1 <= data_in0;
             @(posedge clk_32f);
             data_in0 <= 'b1;
-            data_in1 <= 'b1;
+            // data_in1 <= 'b1;
+            data_in1 <= data_in0;
             @(posedge clk_32f);
             data_in0 <='b0;
-            data_in1 <='b0;
+            // data_in1 <='b0;
+            data_in1 <= data_in0;
             @(posedge clk_32f);
             data_in0 <= data_in0+ data_in0;
-            data_in1 <= data_in1+ data_in1;
+            // data_in1 <= data_in1+ data_in1;
+            data_in1 <= data_in0;
         end
 
-        @(posedge clk_32f);
-        @(posedge clk_32f);
-        @(posedge clk_32f);
-        @(posedge clk_32f);
-        @(posedge clk_32f);
-        @(posedge clk_32f);
-        @(posedge clk_32f);
-        @(posedge clk_32f);
-
+        repeat (40) begin
+            @(posedge clk_32f);
+        end
+        
         $finish;
     end
 

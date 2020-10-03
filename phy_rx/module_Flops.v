@@ -15,7 +15,6 @@ module module_Flops (
     end 
     
     
-    
     always @(posedge clk_Flops)begin 
 	if (reset_L == 1)begin	
 		if(valid_out_Flops == 1)
@@ -24,8 +23,9 @@ module module_Flops (
 			data_out_Flops <= data_out_Flops;
 	end
 	
-	else 
-	    data_out_Flops <= 32'b0;
+	else begin
+			data_out_Flops <= 32'b0;
+		end
     end
 
 endmodule
