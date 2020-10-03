@@ -137,7 +137,33 @@ module probador (
             data_in1 <= data_in0;
         end
 
-        repeat (40) begin
+        // Se envia el codigo HEX(BC) SOLO UNA VEZ
+        @(posedge clk_32f);
+        data_in0 <= 'b1;
+        data_in1 <= 'b1;
+        @(posedge clk_32f);
+        data_in0 <= 'b0;
+        data_in1 <= 'b0;
+        @(posedge clk_32f);
+        data_in0 <= 'b1;
+        data_in1 <= 'b1;
+        @(posedge clk_32f);
+        data_in0 <= 'b1;
+        data_in1 <= 'b1;
+        @(posedge clk_32f);
+        data_in0 <= 'b1;
+        data_in1 <= 'b1;
+        @(posedge clk_32f);
+        data_in0 <= 'b1;
+        data_in1 <= 'b1;
+        @(posedge clk_32f);
+        data_in0 <= 'b0;
+        data_in1 <= 'b0;
+        @(posedge clk_32f);
+        data_in0 <= 'b0;
+        data_in1 <= 'b0;
+
+        repeat (96) begin
             @(posedge clk_32f);
         end
         
