@@ -1,0 +1,21 @@
+# read design
+read_verilog Demux32_8.v module_Flops.v module_Recirculacion.v module_PS.v demux_striping.v Serial_Paralelo.v Mux32_8.v mux_striping.v phy_tx.v phy_rx.v
+hierarchy -check -top phy
+
+# the high-level stuff
+proc; opt; fsm; opt; memory; opt
+
+# mapping to internal cell library
+techmap; opt
+
+# mapping flip-flops to cmos_cells.lib
+dfflibmap -liberty cmos_cells.lib
+
+# mapping logic to cmos_cells.lib
+abc -liberty cmos_cells.lib
+
+# cleanup
+clean
+
+# write synthesized design
+write_verilog phy_synth.v
