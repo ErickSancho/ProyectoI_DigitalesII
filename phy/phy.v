@@ -9,16 +9,19 @@ module phy(
     input valid_in,
     input [31:0]data_in,
     output reg [31:0]data_out,
+	output reg valid_out,
     output reg [31:0] data_out_Recirc_Retorno
 );
 
-
+wire [31:0]data_out_phyrx;
+wire valid_out_phyrx;
+wire [31:0]data_out_Retorno;
 
 phy_tx TX(/*AUTOINST*/
 	  // Outputs
 	  .data_out_lane0		(data_out_lane0),
 	  .data_out_lane1		(data_out_lane1),
-	  .data_out_Recirc_Retorno	(data_out_Recirc_Retorno[31:0]),
+	  .data_out_Recirc_Retorno	(data_out_Retorno[31:0]),
 	  // Inputs
 	  .clk_f			(clk_f),
 	  .clk_2f			(clk_2f),
@@ -32,10 +35,10 @@ phy_tx TX(/*AUTOINST*/
 
 phy_rx RX(/*AUTOINST*/
 	  // Outputs
-	  .data_out_phyrx		(data_out_phyrx[31:0]),
-	  .valid_out_phyrx		(valid_out_phyrx),
-	  .active0			(active0),
-	  .active1			(active1),
+	  .data_out			(data_out_phyrx[31:0]),
+	  .valid_out		(valid_out_phyrx),
+	  .active0			(active_lane0),
+	  .active1			(active_lane1),
 	  // Inputs
 	  .clk_f			(clk_f),
 	  .clk_2f			(clk_2f),
@@ -43,11 +46,12 @@ phy_rx RX(/*AUTOINST*/
 	  .clk_32f			(clk_32f),
 	  .data_in0			(data_out_lane0),
 	  .data_in1			(data_out_lane1),
-	  .reset			(reset));
+	  .reset			(reset_L));
 
 always @(*) begin
     data_out = data_out_phyrx;
-    vali
+    valid_out = valid_out_phyrx;
+	data_out_Recirc_Retorno = data_out_Retorno;
 end
 
 endmodule

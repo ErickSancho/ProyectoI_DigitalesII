@@ -7,7 +7,7 @@ module module_Flops (
     output reg [31:0]	data_out_Flops);
     
 
-    always @(*)begin
+    always @(posedge clk_2f)begin
     	if (reset_L == 1)
     		valid_out_Flops = valid_in;
     	else

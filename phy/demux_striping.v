@@ -22,10 +22,14 @@ module demux_striping (
 
         else begin
             if (selectorInterno == 0) begin 
-                data_out0 <= data_in;
-                valid_out_0 <= valid_in;
                 if (valid_in == 1) begin
                     selectorInterno <= ~selectorInterno; // El selector solo cambia cuando "saca" algo valido
+                    data_out0 <= data_in;
+                    valid_out_0 <= valid_in;
+                end
+                else begin
+                    data_out0 <= 'b0;;
+                    valid_out_0 <= 'b0;
                 end
                 if (valid_out_0 == 1 && valid_in == 0) begin
                     selectorInterno <= ~selectorInterno;
@@ -33,10 +37,14 @@ module demux_striping (
             end
 
             else begin 
-                data_out1 <= data_in;
-                valid_out_1 <= valid_in;
                 if (valid_in == 1) begin
                     selectorInterno <= ~selectorInterno;
+                    data_out1 <= data_in;
+                    valid_out_1 <= valid_in;
+                end
+                else begin
+                    data_out1 <= 'b0;
+                    valid_out_1 <= 'b0;
                 end
                 if (valid_out_1 == 1 && valid_in == 0) begin
                     selectorInterno <= ~selectorInterno;

@@ -1,5 +1,5 @@
 # read design
-read_verilog Demux32_8.v module_Flops.v module_Recirculacion.v module_PS.v demux_striping.v Serial_Paralelo.v Mux32_8.v mux_striping.v phy_tx.v phy_rx.v
+read_verilog Demux32_8.v module_Flops.v module_Recirculacion.v module_PS.v demux_striping.v Serial_Paralelo.v Mux8_32.v mux_unstriping.v phy_tx.v phy_rx.v phy.v
 hierarchy -check -top phy
 
 # the high-level stuff
