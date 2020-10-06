@@ -11,6 +11,26 @@ module mux_unstriping (
     reg selectorInterno;
 
     always @ (posedge clk_2f) begin
+        if (reset_L == 1) 
+            selectorInterno <= ~selectorInterno;
+        else 
+            selectorInterno <= 0;
+    end
+
+    always @(*) begin
+        if (selectorInterno == 0) begin
+            data_out = data_in1;
+            valid_out = valid_in1;
+        end
+        else begin
+            data_out = data_in0;
+            valid_out = valid_in0;
+        end
+
+    end
+
+/*
+    always @ (posedge clk_2f) begin
 
         if (reset_L == 0) begin // Ambas salidas serian puros ceros 
             data_out <= 32'b0;
@@ -18,13 +38,13 @@ module mux_unstriping (
             selectorInterno <= 0;
         end
 
-        else begin
+        else if (reset_L==1) begin
 
             if (selectorInterno == 0) begin 
                 data_out <= data_in0;
                 valid_out <= valid_in0;
                 if (valid_in0 == 1) begin
-                    selectorInterno <= ~ selectorInterno;
+                    selectorInterno <= selectorInterno + 1;
                 end
             end
 
@@ -32,13 +52,11 @@ module mux_unstriping (
                 data_out <= data_in1;
                 valid_out <= valid_in1;
                 if (valid_in1 == 1) begin
-                    selectorInterno <= ~ selectorInterno;
+                    selectorInterno <= selectorInterno + 1;
                 end
             end
  
         end 
-
     end
-
-
+*/
 endmodule

@@ -1,5 +1,5 @@
 module module_PS ( 
-    input 		clk_PS,
+    input 		clk_32f,
     input	 	reset_L,
     input 		valid_in_PS,
     input [7:0]	data_in_PS,
@@ -9,7 +9,7 @@ module module_PS (
     reg [6:0] data_in2_PS = 7'b0;
     reg [2:0] counter; 
                  
-    always @(posedge clk_PS)begin	
+    always @(posedge clk_32f)begin	
     	if(reset_L == 1)begin
 		if(data_in1_PS[6:0] == data_in2_PS)begin				
 			if(counter == 3'b111 || counter == 3'b0)begin
@@ -49,5 +49,3 @@ module module_PS (
   end    
   
 endmodule
-
-

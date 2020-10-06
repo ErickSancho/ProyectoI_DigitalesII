@@ -1,8 +1,3 @@
-`include "Serial_Paralelo.v"
-`include "Mux8_32.v"
-`include "mux_unstriping.v"
-`include "module_Flops.v"
-
 module phy_rx (
     input clk_f,
     input clk_2f,
@@ -11,10 +6,10 @@ module phy_rx (
     input data_in0,
     input data_in1,
     input reset,
-    output [31:0] data_out_phyrx,
-    output valid_out_phyrx,
-    output active0,
-    output active1);
+    output reg [31:0] data_out,
+    output reg valid_out,
+    output reg active0,
+    output reg active1);
 
 wire [7:0] salida_sp0, salida_sp1; // Datos de salida de los serial a paralelo
 wire valid_sp0, valid_sp1, active_sp0, active_sp1; // Valid y active de salida de los serial a paralelo
@@ -23,16 +18,86 @@ wire valid_m0, valid_m1; // Valids de salida de los mux 8:32
 wire [31:0] salida_unstripping; // Salida del mux unstripping
 wire valid_unstripping; // Valid de salida del mux unstripping
 
-Serial_Paralelo sp0 (clk_4f, clk_32f, data_in0, reset, salida_sp0, valid_sp0, active0);
+wire [31:0]data_out_phyrx;
+wire valid_out_phyrx;
 
-Serial_Paralelo sp1 (clk_4f, clk_32f, data_in1, reset, salida_sp1, valid_sp1, active1);
+wire active_lane0, active_lane1;
 
-Mux8_32 mux8_32_0 (clk_f, clk_4f, salida_sp0, valid_sp0, reset, salida_mux8_32_0, valid_m0);
 
-Mux8_32 mux8_32_1 (clk_f, clk_4f, salida_sp1, valid_sp1, reset, salida_mux8_32_1, valid_m1);
 
-mux_unstriping mux_unstriping0 (clk_2f, reset, salida_mux8_32_0, valid_m0, salida_mux8_32_1, valid_m1, salida_unstripping, valid_unstripping);
 
-module_Flops flops (clk_2f, reset, valid_unstripping, salida_unstripping, valid_out_phyrx, data_out_phyrx);
+Serial_Paralelo sp0 (/*AUTOINST*/
+		     // Outputs
+		     .data_out		(salida_sp0[7:0]),
+		     .valid_out		(valid_sp0),
+		     .active		(active_lane0),
+		     // Inputs
+		     .clk_4f		(clk_4f),
+		     .clk_32f		(clk_32f),
+		     .data_in		(data_in0),
+		     .reset		(reset));
+
+Serial_Paralelo sp1 (/*AUTOINST*/
+		     // Outputs
+		     .data_out		(salida_sp1[7:0]),
+		     .valid_out		(valid_sp1),
+		     .active		(active_lane1),
+		     // Inputs
+		     .clk_4f		(clk_4f),
+		     .clk_32f		(clk_32f),
+		     .data_in		(data_in1),
+		     .reset		(reset));
+
+Mux8_32 mux8_32_0 (/*AUTOINST*/
+		   // Outputs
+		   .data_out		(salida_mux8_32_0[31:0]),
+		   .valid_out		(valid_m0),
+		   // Inputs
+		   .clk_f		(clk_f),
+		   .clk_4f		(clk_4f),
+		   .data_in		(salida_sp0[7:0]),
+		   .valid_in		(valid_sp0),
+		   .reset		(reset));
+
+Mux8_32 mux8_32_1 (/*AUTOINST*/
+		   // Outputs
+		   .data_out		(salida_mux8_32_1[31:0]),
+		   .valid_out		(valid_m1),
+		   // Inputs
+		   .clk_f		(clk_f),
+		   .clk_4f		(clk_4f),
+		   .data_in		(salida_sp1[7:0]),
+		   .valid_in		(valid_sp1),
+		   .reset		(reset));
+
+
+mux_unstriping mux_unstriping0 (/*AUTOINST*/
+				// Outputs
+				.data_out	(salida_unstripping[31:0]),
+				.valid_out	(valid_unstripping),
+				// Inputs
+				.clk_2f		(clk_2f),
+				.reset_L	(reset),
+				.data_in0	(salida_mux8_32_0[31:0]), //Cambio
+				.valid_in0	(valid_m0),					//Cambio
+				.data_in1	(salida_mux8_32_1[31:0]),
+				.valid_in1	(valid_m1));
+
+module_Flops flops (/*AUTOINST*/
+		    // Outputs
+		    .valid_out_Flops	(valid_out_phyrx),
+		    .data_out_Flops	(data_out_phyrx[31:0]),
+		    // Inputs
+		    .clk_2f		(clk_2f),
+		    .reset_L		(reset),
+		    .valid_in		(valid_unstripping),
+		    .data_in		(salida_unstripping[31:0]));
+
+always @(*) begin
+    data_out = data_out_phyrx;
+    valid_out = valid_out_phyrx;
+    active0 = active_lane0;
+    active1 = active_lane1;
+end
 
 endmodule

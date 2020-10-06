@@ -7784,7 +7784,7 @@ module phy_synth(clk_f, clk_2f, clk_4f, clk_32f, reset_L, active_lane0, active_l
   assign valid_out = valid_out_phy_synthrx;
 endmodule
 
-(* src = "phy_synth_rx_synth.v:1.1-130.10" *)
+(* src = "phy_synth_rx_synth.v:1.1-103.10" *)
 module phy_synth_rx_synth(clk_f, clk_2f, clk_4f, clk_32f, data_in0, data_in1, reset, data_out, valid_out, active0, active1);
   (* src = "phy_synth_rx_synth.v:11.16-11.23" *)
   output active0;
@@ -7837,7 +7837,7 @@ module phy_synth_rx_synth(clk_f, clk_2f, clk_4f, clk_32f, data_in0, data_in1, re
   (* src = "phy_synth_rx_synth.v:19.6-19.23" *)
   wire valid_unstripping;
   (* module_not_derived = 32'd1 *)
-  (* src = "phy_synth_rx_synth.v:113.14-121.44" *)
+  (* src = "phy_synth_rx_synth.v:86.14-94.44" *)
   module_Flops_synth flops (
     .clk_2f(clk_2f),
     .data_in(salida_unstripping),
@@ -7847,7 +7847,7 @@ module phy_synth_rx_synth(clk_f, clk_2f, clk_4f, clk_32f, data_in0, data_in1, re
     .valid_out_Flops(valid_out_phy_synthrx)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "phy_synth_rx_synth.v:64.9-73.22" *)
+  (* src = "phy_synth_rx_synth.v:51.9-60.22" *)
   Mux8_32_synth mux8_32_0 (
     .clk_4f(clk_4f),
     .clk_f(clk_f),
@@ -7858,7 +7858,7 @@ module phy_synth_rx_synth(clk_f, clk_2f, clk_4f, clk_32f, data_in0, data_in1, re
     .valid_out(valid_m0)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "phy_synth_rx_synth.v:75.9-84.22" *)
+  (* src = "phy_synth_rx_synth.v:62.9-71.22" *)
   Mux8_32_synth mux8_32_1 (
     .clk_4f(clk_4f),
     .clk_f(clk_f),
@@ -7869,7 +7869,7 @@ module phy_synth_rx_synth(clk_f, clk_2f, clk_4f, clk_32f, data_in0, data_in1, re
     .valid_out(valid_m1)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "phy_synth_rx_synth.v:101.16-111.27" *)
+  (* src = "phy_synth_rx_synth.v:74.16-84.27" *)
   mux_unstriping_synth mux_unstriping_synth0 (
     .clk_2f(clk_2f),
     .data_in0(salida_mux8_32_0),

@@ -47,19 +47,6 @@ Serial_Paralelo sp1 (/*AUTOINST*/
 		     .clk_32f		(clk_32f),
 		     .data_in		(data_in1),
 		     .reset		(reset));
-//Bloque de atraso de dos ciclos de reloj para el lane 1
-
-reg [7:0]salida_sp1_a1;
-reg [7:0]salida_sp1_a2;
-reg valid_sp1_a1;
-reg valid_sp1_a2;
-
-always @(posedge clk_4f) begin
-    salida_sp1_a1<=salida_sp1;
-    salida_sp1_a2<=salida_sp1_a1;
-    valid_sp1_a1<=valid_sp1;
-    valid_sp1_a2<=valid_sp1_a1;
-end
 
 Mux8_32 mux8_32_0 (/*AUTOINST*/
 		   // Outputs
@@ -82,20 +69,6 @@ Mux8_32 mux8_32_1 (/*AUTOINST*/
 		   .data_in		(salida_sp1[7:0]),
 		   .valid_in		(valid_sp1),
 		   .reset		(reset));
-
-
-wire [31:0]data_lane0;
-wire valid_lane0;
-
-module_Flops flops0_striping (/*AUTOINST*/
-		    // Outputs
-		    .valid_out_Flops	(valid_lane0),
-		    .data_out_Flops	(data_lane0[31:0]),
-		    // Inputs
-		    .clk_2f		(clk_2f),
-		    .reset_L		(reset),
-		    .valid_in		(valid_m0),
-		    .data_in		(salida_mux8_32_0[31:0]));
 
 
 mux_unstriping mux_unstriping0 (/*AUTOINST*/
