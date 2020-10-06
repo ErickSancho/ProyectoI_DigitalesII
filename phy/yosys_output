@@ -116,7 +116,8 @@ Removed 0 unused modules.
 Cleaned up 0 empty switches.
 
 13.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
-Marked 2 switch rules as full_case in process $proc$mux_unstriping.v:13$70 in module mux_unstriping.
+Marked 1 switch rules as full_case in process $proc$mux_unstriping.v:20$73 in module mux_unstriping.
+Marked 1 switch rules as full_case in process $proc$mux_unstriping.v:13$70 in module mux_unstriping.
 Marked 1 switch rules as full_case in process $proc$Mux8_32.v:32$66 in module Mux8_32.
 Marked 1 switch rules as full_case in process $proc$Mux8_32.v:19$64 in module Mux8_32.
 Marked 4 switch rules as full_case in process $proc$Serial_Paralelo.v:44$52 in module Serial_Paralelo.
@@ -130,7 +131,7 @@ Removed a total of 0 dead cases.
 
 13.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
 Removed 10 redundant assignments.
-Promoted 29 assignments to connections.
+Promoted 28 assignments to connections.
 
 13.4. Executing PROC_INIT pass (extract init attributes).
 Found init rule in `\Demux32_8.$proc$Demux32_8.v:10$16'.
@@ -139,15 +140,15 @@ Found init rule in `\Demux32_8.$proc$Demux32_8.v:10$16'.
 13.5. Executing PROC_ARST pass (detect async resets in processes).
 
 13.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
-Creating decoders for process `\phy.$proc$phy.v:51$82'.
-Creating decoders for process `\phy_rx.$proc$phy_rx.v:115$81'.
-Creating decoders for process `\phy_rx.$proc$phy_rx.v:88$80'.
-Creating decoders for process `\phy_rx.$proc$phy_rx.v:58$79'.
-Creating decoders for process `\phy_tx.$proc$phy_tx.v:110$78'.
+Creating decoders for process `\phy.$proc$phy.v:51$79'.
+Creating decoders for process `\phy_rx.$proc$phy_rx.v:120$78'.
+Creating decoders for process `\phy_rx.$proc$phy_rx.v:58$77'.
+Creating decoders for process `\phy_tx.$proc$phy_tx.v:110$76'.
+Creating decoders for process `\mux_unstriping.$proc$mux_unstriping.v:20$73'.
+     1/2: $1\valid_out[0:0]
+     2/2: $1\data_out[31:0]
 Creating decoders for process `\mux_unstriping.$proc$mux_unstriping.v:13$70'.
-     1/3: $0\valid_out[0:0]
-     2/3: $0\data_out[31:0]
-     3/3: $0\selectorInterno[0:0]
+     1/1: $0\selectorInterno[0:0]
 Creating decoders for process `\Mux8_32.$proc$Mux8_32.v:32$66'.
      1/2: $0\valid_out[0:0]
      2/2: $0\data_out[31:0]
@@ -199,7 +200,7 @@ Creating decoders for process `\module_Recirculacion.$proc$module_Recirculacion.
 Creating decoders for process `\module_Flops.$proc$module_Flops.v:19$19'.
      1/1: $0\data_out_Flops[31:0]
 Creating decoders for process `\module_Flops.$proc$module_Flops.v:10$17'.
-     1/1: $1\valid_out_Flops[0:0]
+     1/1: $0\valid_out_Flops[0:0]
 Creating decoders for process `\Demux32_8.$proc$Demux32_8.v:10$16'.
 Creating decoders for process `\Demux32_8.$proc$Demux32_8.v:28$10'.
      1/2: $0\valid_out[0:0]
@@ -209,16 +210,18 @@ Creating decoders for process `\Demux32_8.$proc$Demux32_8.v:15$3'.
 Creating decoders for process `\Demux32_8.$proc$Demux32_8.v:13$1'.
 
 13.7. Executing PROC_DLATCH pass (convert process syncs to latches).
-No latch inferred for signal `\phy.\data_out' from process `\phy.$proc$phy.v:51$82'.
-No latch inferred for signal `\phy.\valid_out' from process `\phy.$proc$phy.v:51$82'.
-No latch inferred for signal `\phy.\data_out_Recirc_Retorno' from process `\phy.$proc$phy.v:51$82'.
-No latch inferred for signal `\phy_rx.\data_out' from process `\phy_rx.$proc$phy_rx.v:115$81'.
-No latch inferred for signal `\phy_rx.\valid_out' from process `\phy_rx.$proc$phy_rx.v:115$81'.
-No latch inferred for signal `\phy_rx.\active0' from process `\phy_rx.$proc$phy_rx.v:115$81'.
-No latch inferred for signal `\phy_rx.\active1' from process `\phy_rx.$proc$phy_rx.v:115$81'.
-No latch inferred for signal `\phy_tx.\data_out_lane0' from process `\phy_tx.$proc$phy_tx.v:110$78'.
-No latch inferred for signal `\phy_tx.\data_out_lane1' from process `\phy_tx.$proc$phy_tx.v:110$78'.
-No latch inferred for signal `\phy_tx.\data_out_Recirc_Retorno' from process `\phy_tx.$proc$phy_tx.v:110$78'.
+No latch inferred for signal `\phy.\data_out' from process `\phy.$proc$phy.v:51$79'.
+No latch inferred for signal `\phy.\valid_out' from process `\phy.$proc$phy.v:51$79'.
+No latch inferred for signal `\phy.\data_out_Recirc_Retorno' from process `\phy.$proc$phy.v:51$79'.
+No latch inferred for signal `\phy_rx.\data_out' from process `\phy_rx.$proc$phy_rx.v:120$78'.
+No latch inferred for signal `\phy_rx.\valid_out' from process `\phy_rx.$proc$phy_rx.v:120$78'.
+No latch inferred for signal `\phy_rx.\active0' from process `\phy_rx.$proc$phy_rx.v:120$78'.
+No latch inferred for signal `\phy_rx.\active1' from process `\phy_rx.$proc$phy_rx.v:120$78'.
+No latch inferred for signal `\phy_tx.\data_out_lane0' from process `\phy_tx.$proc$phy_tx.v:110$76'.
+No latch inferred for signal `\phy_tx.\data_out_lane1' from process `\phy_tx.$proc$phy_tx.v:110$76'.
+No latch inferred for signal `\phy_tx.\data_out_Recirc_Retorno' from process `\phy_tx.$proc$phy_tx.v:110$76'.
+No latch inferred for signal `\mux_unstriping.\data_out' from process `\mux_unstriping.$proc$mux_unstriping.v:20$73'.
+No latch inferred for signal `\mux_unstriping.\valid_out' from process `\mux_unstriping.$proc$mux_unstriping.v:20$73'.
 No latch inferred for signal `\Mux8_32.\notclk_4f' from process `\Mux8_32.$proc$Mux8_32.v:12$62'.
 No latch inferred for signal `\Serial_Paralelo.\not_clk_32f' from process `\Serial_Paralelo.$proc$Serial_Paralelo.v:17$48'.
 No latch inferred for signal `\module_PS.\data_in2_PS' from process `\module_PS.$proc$module_PS.v:9$32'.
@@ -228,84 +231,77 @@ No latch inferred for signal `\module_Recirculacion.\data_out_Retorno' from proc
 No latch inferred for signal `\Demux32_8.\notclk_4f' from process `\Demux32_8.$proc$Demux32_8.v:13$1'.
 
 13.8. Executing PROC_DFF pass (convert process syncs to FFs).
-Creating register for signal `\phy_rx.\data_lane0' using process `\phy_rx.$proc$phy_rx.v:88$80'.
-  created $dff cell `$procdff$411' with positive edge clock.
-Creating register for signal `\phy_rx.\valid_lane0' using process `\phy_rx.$proc$phy_rx.v:88$80'.
-  created $dff cell `$procdff$412' with positive edge clock.
-Creating register for signal `\phy_rx.\salida_sp1_a1' using process `\phy_rx.$proc$phy_rx.v:58$79'.
-  created $dff cell `$procdff$413' with positive edge clock.
-Creating register for signal `\phy_rx.\salida_sp1_a2' using process `\phy_rx.$proc$phy_rx.v:58$79'.
-  created $dff cell `$procdff$414' with positive edge clock.
-Creating register for signal `\phy_rx.\valid_sp1_a1' using process `\phy_rx.$proc$phy_rx.v:58$79'.
-  created $dff cell `$procdff$415' with positive edge clock.
-Creating register for signal `\phy_rx.\valid_sp1_a2' using process `\phy_rx.$proc$phy_rx.v:58$79'.
-  created $dff cell `$procdff$416' with positive edge clock.
-Creating register for signal `\mux_unstriping.\data_out' using process `\mux_unstriping.$proc$mux_unstriping.v:13$70'.
-  created $dff cell `$procdff$417' with positive edge clock.
-Creating register for signal `\mux_unstriping.\valid_out' using process `\mux_unstriping.$proc$mux_unstriping.v:13$70'.
-  created $dff cell `$procdff$418' with positive edge clock.
+Creating register for signal `\phy_rx.\salida_sp1_a1' using process `\phy_rx.$proc$phy_rx.v:58$77'.
+  created $dff cell `$procdff$395' with positive edge clock.
+Creating register for signal `\phy_rx.\salida_sp1_a2' using process `\phy_rx.$proc$phy_rx.v:58$77'.
+  created $dff cell `$procdff$396' with positive edge clock.
+Creating register for signal `\phy_rx.\valid_sp1_a1' using process `\phy_rx.$proc$phy_rx.v:58$77'.
+  created $dff cell `$procdff$397' with positive edge clock.
+Creating register for signal `\phy_rx.\valid_sp1_a2' using process `\phy_rx.$proc$phy_rx.v:58$77'.
+  created $dff cell `$procdff$398' with positive edge clock.
 Creating register for signal `\mux_unstriping.\selectorInterno' using process `\mux_unstriping.$proc$mux_unstriping.v:13$70'.
-  created $dff cell `$procdff$419' with positive edge clock.
+  created $dff cell `$procdff$399' with positive edge clock.
 Creating register for signal `\Mux8_32.\data_out' using process `\Mux8_32.$proc$Mux8_32.v:32$66'.
-  created $dff cell `$procdff$420' with positive edge clock.
+  created $dff cell `$procdff$400' with positive edge clock.
 Creating register for signal `\Mux8_32.\valid_out' using process `\Mux8_32.$proc$Mux8_32.v:32$66'.
-  created $dff cell `$procdff$421' with positive edge clock.
+  created $dff cell `$procdff$401' with positive edge clock.
 Creating register for signal `\Mux8_32.\mem' using process `\Mux8_32.$proc$Mux8_32.v:19$64'.
-  created $dff cell `$procdff$422' with positive edge clock.
+  created $dff cell `$procdff$402' with positive edge clock.
 Creating register for signal `\Serial_Paralelo.\data_out' using process `\Serial_Paralelo.$proc$Serial_Paralelo.v:87$61'.
-  created $dff cell `$procdff$423' with positive edge clock.
+  created $dff cell `$procdff$403' with positive edge clock.
 Creating register for signal `\Serial_Paralelo.\valid_out' using process `\Serial_Paralelo.$proc$Serial_Paralelo.v:87$61'.
-  created $dff cell `$procdff$424' with positive edge clock.
+  created $dff cell `$procdff$404' with positive edge clock.
 Creating register for signal `\Serial_Paralelo.\data_out_pre2' using process `\Serial_Paralelo.$proc$Serial_Paralelo.v:87$61'.
-  created $dff cell `$procdff$425' with positive edge clock.
+  created $dff cell `$procdff$405' with positive edge clock.
 Creating register for signal `\Serial_Paralelo.\valid_out_pre2' using process `\Serial_Paralelo.$proc$Serial_Paralelo.v:87$61'.
-  created $dff cell `$procdff$426' with positive edge clock.
+  created $dff cell `$procdff$406' with positive edge clock.
 Creating register for signal `\Serial_Paralelo.\active' using process `\Serial_Paralelo.$proc$Serial_Paralelo.v:44$52'.
-  created $dff cell `$procdff$427' with positive edge clock.
+  created $dff cell `$procdff$407' with positive edge clock.
 Creating register for signal `\Serial_Paralelo.\contador_BC' using process `\Serial_Paralelo.$proc$Serial_Paralelo.v:44$52'.
-  created $dff cell `$procdff$428' with positive edge clock.
+  created $dff cell `$procdff$408' with positive edge clock.
 Creating register for signal `\Serial_Paralelo.\counter_out' using process `\Serial_Paralelo.$proc$Serial_Paralelo.v:44$52'.
-  created $dff cell `$procdff$429' with positive edge clock.
+  created $dff cell `$procdff$409' with positive edge clock.
 Creating register for signal `\Serial_Paralelo.\data_out_pre1' using process `\Serial_Paralelo.$proc$Serial_Paralelo.v:44$52'.
-  created $dff cell `$procdff$430' with positive edge clock.
+  created $dff cell `$procdff$410' with positive edge clock.
 Creating register for signal `\Serial_Paralelo.\valid_out_pre1' using process `\Serial_Paralelo.$proc$Serial_Paralelo.v:44$52'.
-  created $dff cell `$procdff$431' with positive edge clock.
+  created $dff cell `$procdff$411' with positive edge clock.
 Creating register for signal `\Serial_Paralelo.\buffer' using process `\Serial_Paralelo.$proc$Serial_Paralelo.v:21$50'.
-  created $dff cell `$procdff$432' with positive edge clock.
+  created $dff cell `$procdff$412' with positive edge clock.
 Creating register for signal `\demux_striping.\data_out0' using process `\demux_striping.$proc$demux_striping.v:13$33'.
-  created $dff cell `$procdff$433' with positive edge clock.
+  created $dff cell `$procdff$413' with positive edge clock.
 Creating register for signal `\demux_striping.\data_out1' using process `\demux_striping.$proc$demux_striping.v:13$33'.
-  created $dff cell `$procdff$434' with positive edge clock.
+  created $dff cell `$procdff$414' with positive edge clock.
 Creating register for signal `\demux_striping.\valid_out_0' using process `\demux_striping.$proc$demux_striping.v:13$33'.
-  created $dff cell `$procdff$435' with positive edge clock.
+  created $dff cell `$procdff$415' with positive edge clock.
 Creating register for signal `\demux_striping.\valid_out_1' using process `\demux_striping.$proc$demux_striping.v:13$33'.
-  created $dff cell `$procdff$436' with positive edge clock.
+  created $dff cell `$procdff$416' with positive edge clock.
 Creating register for signal `\demux_striping.\selectorInterno' using process `\demux_striping.$proc$demux_striping.v:13$33'.
-  created $dff cell `$procdff$437' with positive edge clock.
+  created $dff cell `$procdff$417' with positive edge clock.
 Creating register for signal `\module_PS.\counter' using process `\module_PS.$proc$module_PS.v:12$23'.
-  created $dff cell `$procdff$438' with positive edge clock.
+  created $dff cell `$procdff$418' with positive edge clock.
 Creating register for signal `\module_PS.\data_out_PS' using process `\module_PS.$proc$module_PS.v:12$23'.
-  created $dff cell `$procdff$439' with positive edge clock.
+  created $dff cell `$procdff$419' with positive edge clock.
 Creating register for signal `\module_PS.\data_in1_PS' using process `\module_PS.$proc$module_PS.v:12$23'.
-  created $dff cell `$procdff$440' with positive edge clock.
+  created $dff cell `$procdff$420' with positive edge clock.
 Creating register for signal `\module_Flops.\data_out_Flops' using process `\module_Flops.$proc$module_Flops.v:19$19'.
-  created $dff cell `$procdff$441' with positive edge clock.
+  created $dff cell `$procdff$421' with positive edge clock.
 Creating register for signal `\module_Flops.\valid_out_Flops' using process `\module_Flops.$proc$module_Flops.v:10$17'.
-  created $dff cell `$procdff$442' with positive edge clock.
+  created $dff cell `$procdff$422' with positive edge clock.
 Creating register for signal `\Demux32_8.\data_out' using process `\Demux32_8.$proc$Demux32_8.v:28$10'.
-  created $dff cell `$procdff$443' with positive edge clock.
+  created $dff cell `$procdff$423' with positive edge clock.
 Creating register for signal `\Demux32_8.\valid_out' using process `\Demux32_8.$proc$Demux32_8.v:28$10'.
-  created $dff cell `$procdff$444' with positive edge clock.
+  created $dff cell `$procdff$424' with positive edge clock.
 Creating register for signal `\Demux32_8.\counter' using process `\Demux32_8.$proc$Demux32_8.v:15$3'.
-  created $dff cell `$procdff$445' with positive edge clock.
+  created $dff cell `$procdff$425' with positive edge clock.
 
 13.9. Executing PROC_CLEAN pass (remove empty switches from decision trees).
-Removing empty process `phy.$proc$phy.v:51$82'.
-Removing empty process `phy_rx.$proc$phy_rx.v:115$81'.
-Removing empty process `phy_rx.$proc$phy_rx.v:88$80'.
-Removing empty process `phy_rx.$proc$phy_rx.v:58$79'.
-Removing empty process `phy_tx.$proc$phy_tx.v:110$78'.
-Found and cleaned up 4 empty switches in `\mux_unstriping.$proc$mux_unstriping.v:13$70'.
+Removing empty process `phy.$proc$phy.v:51$79'.
+Removing empty process `phy_rx.$proc$phy_rx.v:120$78'.
+Removing empty process `phy_rx.$proc$phy_rx.v:58$77'.
+Removing empty process `phy_tx.$proc$phy_tx.v:110$76'.
+Found and cleaned up 1 empty switch in `\mux_unstriping.$proc$mux_unstriping.v:20$73'.
+Removing empty process `mux_unstriping.$proc$mux_unstriping.v:20$73'.
+Found and cleaned up 1 empty switch in `\mux_unstriping.$proc$mux_unstriping.v:13$70'.
 Removing empty process `mux_unstriping.$proc$mux_unstriping.v:13$70'.
 Found and cleaned up 1 empty switch in `\Mux8_32.$proc$Mux8_32.v:32$66'.
 Removing empty process `Mux8_32.$proc$Mux8_32.v:32$66'.
@@ -335,7 +331,7 @@ Removing empty process `Demux32_8.$proc$Demux32_8.v:28$10'.
 Found and cleaned up 3 empty switches in `\Demux32_8.$proc$Demux32_8.v:15$3'.
 Removing empty process `Demux32_8.$proc$Demux32_8.v:15$3'.
 Removing empty process `Demux32_8.$proc$Demux32_8.v:13$1'.
-Cleaned up 34 empty switches.
+Cleaned up 32 empty switches.
 
 14. Executing OPT pass (performing simple optimizations).
 
@@ -344,7 +340,7 @@ Optimizing module phy.
 Optimizing module phy_rx.
 Optimizing module phy_tx.
 Optimizing module mux_unstriping.
-<suppressed ~10 debug messages>
+<suppressed ~4 debug messages>
 Optimizing module Mux8_32.
 <suppressed ~4 debug messages>
 Optimizing module Serial_Paralelo.
@@ -365,7 +361,7 @@ Finding identical cells in module `\phy'.
 Finding identical cells in module `\phy_rx'.
 Finding identical cells in module `\phy_tx'.
 Finding identical cells in module `\mux_unstriping'.
-<suppressed ~6 debug messages>
+<suppressed ~3 debug messages>
 Finding identical cells in module `\Mux8_32'.
 Finding identical cells in module `\Serial_Paralelo'.
 <suppressed ~3 debug messages>
@@ -377,7 +373,7 @@ Finding identical cells in module `\module_Recirculacion'.
 Finding identical cells in module `\module_Flops'.
 Finding identical cells in module `\Demux32_8'.
 <suppressed ~6 debug messages>
-Removed a total of 11 cells.
+Removed a total of 10 cells.
 
 14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \phy..
@@ -392,8 +388,6 @@ Running muxtree optimizer on module \phy_tx..
 Running muxtree optimizer on module \mux_unstriping..
   Creating internal representation of mux trees.
   Evaluating internal representation of mux trees.
-      Replacing known input bits on port A of cell $procmux$95: \selectorInterno -> 1'1
-      Replacing known input bits on port A of cell $procmux$98: \selectorInterno -> 1'0
   Analyzing evaluation results.
 Running muxtree optimizer on module \Mux8_32..
   Creating internal representation of mux trees.
@@ -402,16 +396,16 @@ Running muxtree optimizer on module \Mux8_32..
 Running muxtree optimizer on module \Serial_Paralelo..
   Creating internal representation of mux trees.
   Evaluating internal representation of mux trees.
-      Replacing known input bits on port B of cell $procmux$171: \active -> 1'1
-      Replacing known input bits on port A of cell $procmux$168: \active -> 1'0
+      Replacing known input bits on port B of cell $procmux$155: \active -> 1'1
+      Replacing known input bits on port A of cell $procmux$152: \active -> 1'0
   Analyzing evaluation results.
 Running muxtree optimizer on module \demux_striping..
   Creating internal representation of mux trees.
   Evaluating internal representation of mux trees.
-      Replacing known input bits on port B of cell $procmux$228: \valid_in -> 1'1
-      Replacing known input bits on port B of cell $procmux$218: \valid_in -> 1'1
-      Replacing known input bits on port A of cell $procmux$202: \selectorInterno -> 1'1
-      Replacing known input bits on port A of cell $procmux$208: \selectorInterno -> 1'0
+      Replacing known input bits on port B of cell $procmux$212: \valid_in -> 1'1
+      Replacing known input bits on port B of cell $procmux$202: \valid_in -> 1'1
+      Replacing known input bits on port A of cell $procmux$186: \selectorInterno -> 1'1
+      Replacing known input bits on port A of cell $procmux$192: \selectorInterno -> 1'0
   Analyzing evaluation results.
 Running muxtree optimizer on module \module_PS..
   Creating internal representation of mux trees.
@@ -429,7 +423,7 @@ Running muxtree optimizer on module \Demux32_8..
   Creating internal representation of mux trees.
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
-    dead port 2/2 on $mux $procmux$405.
+    dead port 2/2 on $mux $procmux$389.
 Removed 1 multiplexer ports.
 <suppressed ~45 debug messages>
 
@@ -464,45 +458,43 @@ Finding identical cells in module `\Demux32_8'.
 Removed a total of 3 cells.
 
 14.6. Executing OPT_DFF pass (perform DFF optimizations).
-Adding SRST signal on $procdff$419 ($dff) from module mux_unstriping (D = $procmux$100_Y, Q = \selectorInterno, rval = 1'0).
-Adding SRST signal on $procdff$417 ($dff) from module mux_unstriping (D = $procmux$90_Y, Q = \data_out, rval = 0).
-Adding SRST signal on $procdff$418 ($dff) from module mux_unstriping (D = $procmux$84_Y, Q = \valid_out, rval = 1'0).
-Adding SRST signal on $procdff$422 ($dff) from module Mux8_32 (D = { \mem [23:0] \data_in }, Q = \mem, rval = 0).
-Adding SRST signal on $procdff$420 ($dff) from module Mux8_32 (D = \mem, Q = \data_out, rval = 0).
-Adding SRST signal on $procdff$432 ($dff) from module Serial_Paralelo (D = { \buffer [6:0] \data_in }, Q = \buffer, rval = 8'00000000).
-Adding SRST signal on $procdff$431 ($dff) from module Serial_Paralelo (D = $procmux$137_Y, Q = \valid_out_pre1, rval = 1'0).
-Adding EN signal on $auto$opt_dff.cc:702:run$452 ($sdff) from module Serial_Paralelo (D = $procmux$133_Y, Q = \valid_out_pre1).
-Adding SRST signal on $procdff$430 ($dff) from module Serial_Paralelo (D = $procmux$149_Y, Q = \data_out_pre1, rval = 8'00000000).
-Adding EN signal on $auto$opt_dff.cc:702:run$456 ($sdff) from module Serial_Paralelo (D = $procmux$145_Y, Q = \data_out_pre1).
-Adding SRST signal on $procdff$429 ($dff) from module Serial_Paralelo (D = $procmux$125_Y [0], Q = \counter_out [0], rval = 1'0).
-Adding SRST signal on $procdff$429 ($dff) from module Serial_Paralelo (D = $add$Serial_Paralelo.v:74$60_Y [3:1], Q = \counter_out [3:1], rval = 3'000).
-Adding SRST signal on $procdff$427 ($dff) from module Serial_Paralelo (D = $procmux$173_Y, Q = \active, rval = 1'0).
-Adding EN signal on $auto$opt_dff.cc:702:run$466 ($sdff) from module Serial_Paralelo (D = $procmux$171_Y, Q = \active).
-Adding SRST signal on $procdff$428 ($dff) from module Serial_Paralelo (D = $procmux$162_Y, Q = \contador_BC, rval = 3'000).
-Adding EN signal on $auto$opt_dff.cc:702:run$468 ($sdff) from module Serial_Paralelo (D = $procmux$160_Y, Q = \contador_BC).
-Adding SRST signal on $procdff$437 ($dff) from module demux_striping (D = $procmux$212_Y, Q = \selectorInterno, rval = 1'0).
-Adding SRST signal on $procdff$436 ($dff) from module demux_striping (D = $procmux$221_Y, Q = \valid_out_1, rval = 1'0).
-Adding EN signal on $auto$opt_dff.cc:702:run$475 ($sdff) from module demux_striping (D = $procmux$218_Y, Q = \valid_out_1).
-Adding SRST signal on $procdff$435 ($dff) from module demux_striping (D = $procmux$230_Y, Q = \valid_out_0, rval = 1'0).
-Adding EN signal on $auto$opt_dff.cc:702:run$477 ($sdff) from module demux_striping (D = $procmux$228_Y, Q = \valid_out_0).
-Adding SRST signal on $procdff$433 ($dff) from module demux_striping (D = $procmux$248_Y, Q = \data_out0, rval = 0).
-Adding EN signal on $auto$opt_dff.cc:702:run$479 ($sdff) from module demux_striping (D = $procmux$246_Y, Q = \data_out0).
-Adding SRST signal on $procdff$434 ($dff) from module demux_striping (D = $procmux$239_Y, Q = \data_out1, rval = 0).
-Adding EN signal on $auto$opt_dff.cc:702:run$481 ($sdff) from module demux_striping (D = $procmux$236_Y, Q = \data_out1).
-Adding SRST signal on $procdff$440 ($dff) from module module_PS (D = { $procmux$261_Y $procmux$345_Y $procmux$273_Y $procmux$285_Y $procmux$297_Y $procmux$309_Y $procmux$321_Y }, Q = \data_in1_PS [7:1], rval = 7'0000000).
-Adding SRST signal on $procdff$440 ($dff) from module module_PS (D = $procmux$331_Y, Q = \data_in1_PS [0], rval = 1'0).
-Adding EN signal on $auto$opt_dff.cc:702:run$486 ($sdff) from module module_PS (D = $procmux$329_Y, Q = \data_in1_PS [0]).
-Adding EN signal on $auto$opt_dff.cc:702:run$483 ($sdff) from module module_PS (D = { $procmux$261_Y $procmux$345_Y $procmux$273_Y $procmux$285_Y $procmux$297_Y $procmux$309_Y $procmux$321_Y }, Q = \data_in1_PS [7:1]).
-Adding SRST signal on $procdff$439 ($dff) from module module_PS (D = $procmux$366_Y, Q = \data_out_PS, rval = 1'0).
-Adding SRST signal on $procdff$438 ($dff) from module module_PS (D = $procmux$354_Y, Q = \counter, rval = 3'000).
-Adding SRST signal on $procdff$442 ($dff) from module module_Flops (D = \valid_in, Q = \valid_out_Flops, rval = 1'0).
-Adding SRST signal on $procdff$441 ($dff) from module module_Flops (D = \data_in, Q = \data_out_Flops, rval = 0).
-Adding SRST signal on $procdff$445 ($dff) from module Demux32_8 (D = $procmux$407_Y [0], Q = \counter [0], rval = 1'0).
-Adding SRST signal on $procdff$445 ($dff) from module Demux32_8 (D = $procmux$405_Y [2:1], Q = \counter [2:1], rval = 2'00).
-Adding SRST signal on $procdff$444 ($dff) from module Demux32_8 (D = $procmux$391_Y, Q = \valid_out, rval = 1'0).
-Adding EN signal on $auto$opt_dff.cc:702:run$501 ($sdff) from module Demux32_8 (D = $procmux$391_Y, Q = \valid_out).
-Adding SRST signal on $procdff$443 ($dff) from module Demux32_8 (D = $procmux$401_Y, Q = \data_out, rval = 8'00000000).
-Adding EN signal on $auto$opt_dff.cc:702:run$505 ($sdff) from module Demux32_8 (D = $procmux$401_Y, Q = \data_out).
+Adding SRST signal on $procdff$399 ($dff) from module mux_unstriping (D = $eq$mux_unstriping.v:21$74_Y, Q = \selectorInterno, rval = 1'0).
+Adding SRST signal on $procdff$402 ($dff) from module Mux8_32 (D = { \mem [23:0] \data_in }, Q = \mem, rval = 0).
+Adding SRST signal on $procdff$400 ($dff) from module Mux8_32 (D = \mem, Q = \data_out, rval = 0).
+Adding SRST signal on $procdff$412 ($dff) from module Serial_Paralelo (D = { \buffer [6:0] \data_in }, Q = \buffer, rval = 8'00000000).
+Adding SRST signal on $procdff$411 ($dff) from module Serial_Paralelo (D = $procmux$121_Y, Q = \valid_out_pre1, rval = 1'0).
+Adding EN signal on $auto$opt_dff.cc:702:run$430 ($sdff) from module Serial_Paralelo (D = $procmux$117_Y, Q = \valid_out_pre1).
+Adding SRST signal on $procdff$410 ($dff) from module Serial_Paralelo (D = $procmux$133_Y, Q = \data_out_pre1, rval = 8'00000000).
+Adding EN signal on $auto$opt_dff.cc:702:run$434 ($sdff) from module Serial_Paralelo (D = $procmux$129_Y, Q = \data_out_pre1).
+Adding SRST signal on $procdff$409 ($dff) from module Serial_Paralelo (D = $procmux$109_Y [0], Q = \counter_out [0], rval = 1'0).
+Adding SRST signal on $procdff$409 ($dff) from module Serial_Paralelo (D = $add$Serial_Paralelo.v:74$60_Y [3:1], Q = \counter_out [3:1], rval = 3'000).
+Adding SRST signal on $procdff$407 ($dff) from module Serial_Paralelo (D = $procmux$157_Y, Q = \active, rval = 1'0).
+Adding EN signal on $auto$opt_dff.cc:702:run$444 ($sdff) from module Serial_Paralelo (D = $procmux$155_Y, Q = \active).
+Adding SRST signal on $procdff$408 ($dff) from module Serial_Paralelo (D = $procmux$146_Y, Q = \contador_BC, rval = 3'000).
+Adding EN signal on $auto$opt_dff.cc:702:run$446 ($sdff) from module Serial_Paralelo (D = $procmux$144_Y, Q = \contador_BC).
+Adding SRST signal on $procdff$417 ($dff) from module demux_striping (D = $procmux$196_Y, Q = \selectorInterno, rval = 1'0).
+Adding SRST signal on $procdff$416 ($dff) from module demux_striping (D = $procmux$205_Y, Q = \valid_out_1, rval = 1'0).
+Adding EN signal on $auto$opt_dff.cc:702:run$453 ($sdff) from module demux_striping (D = $procmux$202_Y, Q = \valid_out_1).
+Adding SRST signal on $procdff$415 ($dff) from module demux_striping (D = $procmux$214_Y, Q = \valid_out_0, rval = 1'0).
+Adding EN signal on $auto$opt_dff.cc:702:run$455 ($sdff) from module demux_striping (D = $procmux$212_Y, Q = \valid_out_0).
+Adding SRST signal on $procdff$413 ($dff) from module demux_striping (D = $procmux$232_Y, Q = \data_out0, rval = 0).
+Adding EN signal on $auto$opt_dff.cc:702:run$457 ($sdff) from module demux_striping (D = $procmux$230_Y, Q = \data_out0).
+Adding SRST signal on $procdff$414 ($dff) from module demux_striping (D = $procmux$223_Y, Q = \data_out1, rval = 0).
+Adding EN signal on $auto$opt_dff.cc:702:run$459 ($sdff) from module demux_striping (D = $procmux$220_Y, Q = \data_out1).
+Adding SRST signal on $procdff$420 ($dff) from module module_PS (D = { $procmux$245_Y $procmux$329_Y $procmux$257_Y $procmux$269_Y $procmux$281_Y $procmux$293_Y $procmux$305_Y }, Q = \data_in1_PS [7:1], rval = 7'0000000).
+Adding SRST signal on $procdff$420 ($dff) from module module_PS (D = $procmux$315_Y, Q = \data_in1_PS [0], rval = 1'0).
+Adding EN signal on $auto$opt_dff.cc:702:run$464 ($sdff) from module module_PS (D = $procmux$313_Y, Q = \data_in1_PS [0]).
+Adding EN signal on $auto$opt_dff.cc:702:run$461 ($sdff) from module module_PS (D = { $procmux$245_Y $procmux$329_Y $procmux$257_Y $procmux$269_Y $procmux$281_Y $procmux$293_Y $procmux$305_Y }, Q = \data_in1_PS [7:1]).
+Adding SRST signal on $procdff$419 ($dff) from module module_PS (D = $procmux$350_Y, Q = \data_out_PS, rval = 1'0).
+Adding SRST signal on $procdff$418 ($dff) from module module_PS (D = $procmux$338_Y, Q = \counter, rval = 3'000).
+Adding SRST signal on $procdff$422 ($dff) from module module_Flops (D = \valid_in, Q = \valid_out_Flops, rval = 1'0).
+Adding SRST signal on $procdff$421 ($dff) from module module_Flops (D = \data_in, Q = \data_out_Flops, rval = 0).
+Adding SRST signal on $procdff$425 ($dff) from module Demux32_8 (D = $procmux$391_Y [0], Q = \counter [0], rval = 1'0).
+Adding SRST signal on $procdff$425 ($dff) from module Demux32_8 (D = $procmux$389_Y [2:1], Q = \counter [2:1], rval = 2'00).
+Adding SRST signal on $procdff$424 ($dff) from module Demux32_8 (D = $procmux$375_Y, Q = \valid_out, rval = 1'0).
+Adding EN signal on $auto$opt_dff.cc:702:run$479 ($sdff) from module Demux32_8 (D = $procmux$375_Y, Q = \valid_out).
+Adding SRST signal on $procdff$423 ($dff) from module Demux32_8 (D = $procmux$385_Y, Q = \data_out, rval = 8'00000000).
+Adding EN signal on $auto$opt_dff.cc:702:run$483 ($sdff) from module Demux32_8 (D = $procmux$385_Y, Q = \data_out).
 
 14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \phy..
@@ -516,8 +508,8 @@ Finding unused cells or wires in module \module_PS..
 Finding unused cells or wires in module \module_Recirculacion..
 Finding unused cells or wires in module \module_Flops..
 Finding unused cells or wires in module \Demux32_8..
-Removed 59 unused cells and 275 unused wires.
-<suppressed ~75 debug messages>
+Removed 56 unused cells and 266 unused wires.
+<suppressed ~72 debug messages>
 
 14.8. Executing OPT_EXPR pass (perform const folding).
 Optimizing module Demux32_8.
@@ -578,7 +570,7 @@ Running muxtree optimizer on module \phy_tx..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
-<suppressed ~29 debug messages>
+<suppressed ~28 debug messages>
 
 14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \Demux32_8.
@@ -684,7 +676,7 @@ Running muxtree optimizer on module \phy_tx..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
-<suppressed ~29 debug messages>
+<suppressed ~28 debug messages>
 
 14.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \Demux32_8.
@@ -844,7 +836,7 @@ Running muxtree optimizer on module \phy_tx..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
-<suppressed ~29 debug messages>
+<suppressed ~28 debug messages>
 
 16.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \Demux32_8.
@@ -1014,7 +1006,7 @@ Running muxtree optimizer on module \phy_tx..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
-<suppressed ~29 debug messages>
+<suppressed ~28 debug messages>
 
 18.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \Demux32_8.
@@ -1110,8 +1102,8 @@ Using extmapper simplemap for cells of type $not.
 Using extmapper simplemap for cells of type $mux.
 Using extmapper simplemap for cells of type $sdff.
 Using extmapper simplemap for cells of type $reduce_and.
-Using extmapper simplemap for cells of type $sdffe.
 Using extmapper simplemap for cells of type $ne.
+Using extmapper simplemap for cells of type $sdffe.
 Using extmapper simplemap for cells of type $logic_not.
 Using extmapper simplemap for cells of type $eq.
 Using extmapper simplemap for cells of type $logic_or.
@@ -1132,7 +1124,7 @@ Using template $extern:wrap:$add:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=32:Y_WI
 Using template $paramod\_90_alu\A_SIGNED=0\B_SIGNED=0\A_WIDTH=3\B_WIDTH=32\Y_WIDTH=32 for cells of type $alu.
 Using template $paramod\_90_alu\A_SIGNED=0\B_SIGNED=0\A_WIDTH=4\B_WIDTH=32\Y_WIDTH=32 for cells of type $alu.
 No more expansions possible.
-<suppressed ~1026 debug messages>
+<suppressed ~1019 debug messages>
 
 20. Executing OPT pass (performing simple optimizations).
 
@@ -1399,10 +1391,10 @@ Mapping DFF cells in module `\module_PS':
   mapped 11 $_DFF_P_ cells to \DFF cells.
 Mapping DFF cells in module `\module_Recirculacion':
 Mapping DFF cells in module `\mux_unstriping':
-  mapped 34 $_DFF_P_ cells to \DFF cells.
+  mapped 1 $_DFF_P_ cells to \DFF cells.
 Mapping DFF cells in module `\phy':
 Mapping DFF cells in module `\phy_rx':
-  mapped 51 $_DFF_P_ cells to \DFF cells.
+  mapped 18 $_DFF_P_ cells to \DFF cells.
 Mapping DFF cells in module `\phy_tx':
 
 22. Executing ABC pass (technology mapping using ABC).
@@ -1438,8 +1430,8 @@ ABC: + &put
 ABC: + write_blif <abc-temp-dir>/output.blif 
 
 22.1.2. Re-integrating ABC results.
-ABC RESULTS:              NAND cells:       18
-ABC RESULTS:               NOR cells:       81
+ABC RESULTS:              NAND cells:       13
+ABC RESULTS:               NOR cells:       85
 ABC RESULTS:               NOT cells:       49
 ABC RESULTS:        internal signals:       73
 ABC RESULTS:           input signals:       46
@@ -1680,7 +1672,7 @@ ABC RESULTS:          output signals:       65
 Removing temp directory.
 
 22.8. Extracting gate netlist of module `\mux_unstriping' to `<abc-temp-dir>/input.blif'..
-Extracted 71 gates and 141 wires to a netlist network with 68 inputs and 34 outputs.
+Extracted 35 gates and 104 wires to a netlist network with 68 inputs and 34 outputs.
 
 22.8.1. Executing ABC.
 Running ABC command: <yosys-exe-dir>/yosys-abc -s -f <abc-temp-dir>/abc.script 2>&1
@@ -1710,10 +1702,10 @@ ABC: + &put
 ABC: + write_blif <abc-temp-dir>/output.blif 
 
 22.8.2. Re-integrating ABC results.
-ABC RESULTS:              NAND cells:       66
-ABC RESULTS:               NOR cells:       68
-ABC RESULTS:               NOT cells:       35
-ABC RESULTS:        internal signals:       39
+ABC RESULTS:              NAND cells:       99
+ABC RESULTS:               NOR cells:        1
+ABC RESULTS:               NOT cells:        2
+ABC RESULTS:        internal signals:        2
 ABC RESULTS:           input signals:       68
 ABC RESULTS:          output signals:       34
 Removing temp directory.
@@ -1765,7 +1757,7 @@ ABC RESULTS:        internal signals:        0
 ABC RESULTS:           input signals:        2
 ABC RESULTS:          output signals:        1
 Removing temp directory.
-Removed 0 unused cells and 951 unused wires.
+Removed 0 unused cells and 946 unused wires.
 
 23. Executing Verilog backend.
 Dumping module `\Demux32_8'.
@@ -1781,6 +1773,6 @@ Dumping module `\phy_rx'.
 Dumping module `\phy_tx'.
 
 Warnings: 2 unique messages, 2 total
-End of script. Logfile hash: 97e0188a11, CPU: user 0.79s system 0.01s, MEM: 19.62 MB peak
+End of script. Logfile hash: 566c7153d0, CPU: user 0.78s system 0.01s, MEM: 19.22 MB peak
 Yosys 0.9+3565 (git sha1 474cd02e, gcc 9.3.0-10ubuntu2 -fPIC -Os)
-Time spent: 49% 1x abc (0 sec), 18% 2x write_verilog (0 sec), ...
+Time spent: 49% 1x abc (0 sec), 15% 2x write_verilog (0 sec), ...

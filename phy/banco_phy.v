@@ -32,7 +32,7 @@ phy cond(/*AUTOINST*/
 	    .clk_32f	(clk_32f),
         .reset_L	(reset_L),
         .valid_in   (valid_in),
-        .data_in    (data_in));
+        .data_in    (data_in[31:0]));
 
 phy_synth synth(/*AUTOINST*/
         // Outputs

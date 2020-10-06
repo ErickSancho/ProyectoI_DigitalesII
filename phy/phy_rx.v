@@ -24,8 +24,7 @@ wire valid_out_phyrx;
 wire active_lane0, active_lane1;
 
 
-reg [31:0]data_lane0;
-reg valid_lane0;
+
 
 Serial_Paralelo sp0 (/*AUTOINST*/
 		     // Outputs
@@ -85,10 +84,19 @@ Mux8_32 mux8_32_1 (/*AUTOINST*/
 		   .reset		(reset));
 
 
-always @(posedge clk_f) begin
-	data_lane0 <= salida_mux8_32_0;
-	valid_lane0 <= valid_m0;
-end
+reg [31:0]data_lane0;
+reg valid_lane0;
+
+module_Flops flops0_striping (/*AUTOINST*/
+		    // Outputs
+		    .valid_out_Flops	(valid_lane0),
+		    .data_out_Flops	(data_lane0[31:0]),
+		    // Inputs
+		    .clk_2f		(clk_2f),
+		    .reset_L		(reset),
+		    .valid_in		(valid_m0),
+		    .data_in		(salida_mux8_32_0[31:0]));
+
 
 mux_unstriping mux_unstriping0 (/*AUTOINST*/
 				// Outputs
