@@ -34,12 +34,12 @@ always @(posedge not_clk_32f) begin
         buffer<='b0;
     end
 end
-
-reg [7:0]data_out_pre1;
-reg valid_out_pre1;
+/*
+reg [7:0]dut_pre1;
+reg valid_out;
 reg [7:0]data_out_pre2;
 reg valid_out_pre2;
-
+*/
 //control del counter
 always @(posedge clk_32f) begin
 
@@ -49,12 +49,12 @@ always @(posedge clk_32f) begin
             counter_out <= 'b0001;
             if (active==1) begin
                 if (buffer == 'hBC) begin
-                    valid_out_pre1<='b0;
-                    data_out_pre1 <= 'b0;
+                    valid_out<='b0;
+                    data_out <= 'b0;
                 end
                 else begin
-                    valid_out_pre1<='b1;
-                    data_out_pre1<=buffer;
+                    valid_out<='b1;
+                    data_out<=buffer;
                 end
                 contador_BC<=0;
             end
@@ -79,17 +79,16 @@ always @(posedge clk_32f) begin
         counter_out <= 'b0;  //inicializo el contador en cero
         active <= 'b0; //Valor por defecto del active
         contador_BC<='b0;
-        data_out_pre1<='b0;
-        valid_out_pre1<='b0;
+        valid_out<='b0;
     end
 end
-
+/*
 always @(posedge clk_4f) begin
-    data_out_pre2<=data_out_pre1;
-    valid_out_pre2<=valid_out_pre1;
+    data_out_pre2<=dut_pre1;
+    valid_out_pre2<=valid_out;
     data_out<=data_out_pre2;
     valid_out<=valid_out_pre2;
 end
-
+*/
 
 endmodule

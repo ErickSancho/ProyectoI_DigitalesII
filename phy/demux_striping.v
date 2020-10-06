@@ -51,7 +51,6 @@ module demux_striping (
                 end
             end
         end 
-
     end
 
 endmodule

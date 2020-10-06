@@ -79,13 +79,13 @@ Mux8_32 mux8_32_1 (/*AUTOINST*/
 		   // Inputs
 		   .clk_f		(clk_f),
 		   .clk_4f		(clk_4f),
-		   .data_in		(salida_sp1_a2[7:0]),
-		   .valid_in		(valid_sp1_a2),
+		   .data_in		(salida_sp1[7:0]),
+		   .valid_in		(valid_sp1),
 		   .reset		(reset));
 
 
-reg [31:0]data_lane0;
-reg valid_lane0;
+wire [31:0]data_lane0;
+wire valid_lane0;
 
 module_Flops flops0_striping (/*AUTOINST*/
 		    // Outputs
@@ -105,8 +105,8 @@ mux_unstriping mux_unstriping0 (/*AUTOINST*/
 				// Inputs
 				.clk_2f		(clk_2f),
 				.reset_L	(reset),
-				.data_in0	(data_lane0[31:0]),
-				.valid_in0	(valid_lane0),
+				.data_in0	(salida_mux8_32_0[31:0]), //Cambio
+				.valid_in0	(valid_m0),					//Cambio
 				.data_in1	(salida_mux8_32_1[31:0]),
 				.valid_in1	(valid_m1));
 

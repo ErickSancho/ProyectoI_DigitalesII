@@ -69,6 +69,19 @@ demux_striping Demux_striping(/*AUTOINST*/
 			      .data_in		(data_out_Recir[31:0]),
 			      .valid_in		(valid_out_Recir));
 
+wire [31:0]data_striping_lane0;
+wire valid_striping_lane0;
+
+module_Flops flop_strinping(/*AUTOINST*/
+			// Outputs
+		   .valid_out_Flops	(valid_striping_lane0),
+		   .data_out_Flops	(data_striping_lane0[31:0]),
+		   // Inputs
+		   .clk_2f		(clk_2f),
+		   .reset_L		(reset_L),
+		   .valid_in		(valid_out_demux_striping_lane0),
+		   .data_in		(data_out_demux_striping_lane0[31:0]));
+
 Demux32_8 demux32_8_lane0(/*AUTOINST*/
 			  // Outputs
 			  .data_out		(data_out_32_8_lane0[7:0]),
@@ -76,8 +89,8 @@ Demux32_8 demux32_8_lane0(/*AUTOINST*/
 			  // Inputs
 			  .clk_f		(clk_f),
 			  .clk_4f		(clk_4f),
-			  .data_in		(data_out_demux_striping_lane0[31:0]),
-			  .valid_in		(valid_out_demux_striping_lane0));
+			  .data_in		(data_striping_lane0[31:0]),
+			  .valid_in		(valid_striping_lane0));
 
 Demux32_8 demux32_8_lane1(/*AUTOINST*/
 			  // Outputs

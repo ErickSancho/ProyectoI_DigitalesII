@@ -2210,7 +2210,7 @@ module Mux8_32_synth(clk_f, clk_4f, data_in, valid_in, reset, data_out, valid_ou
   );
 endmodule
 
-(* src = "Serial_Paralelo_synth.v:1.1-95.10" *)
+(* src = "Serial_Paralelo_synth.v:1.1-94.10" *)
 module Serial_Paralelo_synth(clk_4f, clk_32f, data_in, reset, data_out, valid_out, active);
   wire _000_;
   wire _001_;
@@ -2335,6 +2335,16 @@ module Serial_Paralelo_synth(clk_4f, clk_32f, data_in, reset, data_out, valid_ou
   wire _120_;
   wire _121_;
   wire _122_;
+  wire _123_;
+  wire _124_;
+  wire _125_;
+  wire _126_;
+  wire _127_;
+  wire _128_;
+  wire _129_;
+  wire _130_;
+  wire _131_;
+  wire _132_;
   (* src = "Serial_Paralelo_synth.v:8.16-8.22" *)
   output active;
   (* src = "Serial_Paralelo_synth.v:11.11-11.17" *)
@@ -2351,151 +2361,98 @@ module Serial_Paralelo_synth(clk_4f, clk_32f, data_in, reset, data_out, valid_ou
   input data_in;
   (* src = "Serial_Paralelo_synth.v:6.22-6.30" *)
   output [7:0] data_out;
-  (* src = "Serial_Paralelo_synth.v:38.10-38.23" *)
-  wire [7:0] data_out_pre1;
-  (* src = "Serial_Paralelo_synth.v:40.10-40.23" *)
-  wire [7:0] data_out_pre2;
   (* src = "Serial_Paralelo_synth.v:5.11-5.16" *)
   input reset;
   (* src = "Serial_Paralelo_synth.v:7.16-7.25" *)
   output valid_out;
-  (* src = "Serial_Paralelo_synth.v:39.5-39.19" *)
-  wire valid_out_pre1;
-  (* src = "Serial_Paralelo_synth.v:41.5-41.19" *)
-  wire valid_out_pre2;
-  NOT _123_ (
+  NOT _133_ (
     .A(active),
-    .Y(_087_)
+    .Y(_097_)
   );
-  NOT _124_ (
+  NOT _134_ (
+    .A(buffer[7]),
+    .Y(_098_)
+  );
+  NOT _135_ (
+    .A(buffer[6]),
+    .Y(_099_)
+  );
+  NOT _136_ (
+    .A(buffer[1]),
+    .Y(_100_)
+  );
+  NOT _137_ (
     .A(reset),
-    .Y(_088_)
+    .Y(_101_)
   );
-  NOT _125_ (
+  NOT _138_ (
     .A(contador_BC[0]),
-    .Y(_089_)
+    .Y(_102_)
   );
-  NOT _126_ (
+  NOT _139_ (
     .A(clk_32f),
     .Y(_007_)
   );
-  NOT _127_ (
-    .A(buffer[6]),
-    .Y(_090_)
-  );
-  NOT _128_ (
-    .A(buffer[5]),
-    .Y(_091_)
-  );
-  NOT _129_ (
-    .A(buffer[4]),
-    .Y(_092_)
-  );
-  NOT _130_ (
-    .A(buffer[3]),
-    .Y(_093_)
-  );
-  NOT _131_ (
-    .A(buffer[2]),
-    .Y(_094_)
-  );
-  NOT _132_ (
-    .A(buffer[1]),
-    .Y(_095_)
-  );
-  NOT _133_ (
-    .A(buffer[0]),
-    .Y(_096_)
-  );
-  NOT _134_ (
+  NOT _140_ (
     .A(counter_out[3]),
-    .Y(_097_)
-  );
-  NOT _135_ (
-    .A(counter_out[2]),
-    .Y(_098_)
-  );
-  NOR _136_ (
-    .A(counter_out[0]),
-    .B(counter_out[1]),
-    .Y(_099_)
-  );
-  NOR _137_ (
-    .A(_097_),
-    .B(counter_out[2]),
-    .Y(_100_)
-  );
-  NAND _138_ (
-    .A(counter_out[3]),
-    .B(_099_),
-    .Y(_101_)
-  );
-  NOR _139_ (
-    .A(counter_out[2]),
-    .B(_101_),
-    .Y(_102_)
-  );
-  NAND _140_ (
-    .A(_099_),
-    .B(_100_),
     .Y(_103_)
   );
-  NOR _141_ (
-    .A(_087_),
-    .B(_103_),
+  NOT _141_ (
+    .A(counter_out[2]),
     .Y(_104_)
   );
-  NOT _142_ (
-    .A(_104_),
+  NOR _142_ (
+    .A(counter_out[0]),
+    .B(counter_out[1]),
     .Y(_105_)
   );
-  NAND _143_ (
-    .A(buffer[2]),
-    .B(_095_),
+  NOR _143_ (
+    .A(_103_),
+    .B(counter_out[2]),
     .Y(_106_)
   );
   NAND _144_ (
-    .A(_096_),
-    .B(buffer[7]),
+    .A(counter_out[3]),
+    .B(_105_),
     .Y(_107_)
   );
   NOR _145_ (
-    .A(_106_),
+    .A(counter_out[2]),
     .B(_107_),
     .Y(_108_)
   );
   NAND _146_ (
-    .A(_090_),
-    .B(buffer[5]),
+    .A(_105_),
+    .B(_106_),
     .Y(_109_)
   );
-  NAND _147_ (
-    .A(buffer[4]),
-    .B(buffer[3]),
+  NOR _147_ (
+    .A(_097_),
+    .B(_109_),
     .Y(_110_)
   );
-  NOR _148_ (
-    .A(_109_),
+  NAND _148_ (
+    .A(reset),
     .B(_110_),
     .Y(_111_)
   );
-  NAND _149_ (
-    .A(_108_),
-    .B(_111_),
+  NOT _149_ (
+    .A(_111_),
     .Y(_112_)
   );
-  NOT _150_ (
-    .A(_112_),
+  NAND _150_ (
+    .A(data_out[7]),
+    .B(_111_),
     .Y(_113_)
   );
-  NOR _151_ (
-    .A(_105_),
-    .B(_113_),
+  NAND _151_ (
+    .A(buffer[3]),
+    .B(buffer[2]),
     .Y(_114_)
   );
-  NAND _152_ (
-    .A(reset),
-    .B(_114_),
+  NOR _152_ (
+    .A(buffer[1]),
+    .B(buffer[0]),
     .Y(_115_)
   );
   NOT _153_ (
@@ -2503,713 +2460,697 @@ module Serial_Paralelo_synth(clk_4f, clk_32f, data_in, reset, data_out, valid_ou
     .Y(_116_)
   );
   NOR _154_ (
-    .A(_088_),
-    .B(_104_),
+    .A(_114_),
+    .B(_116_),
     .Y(_117_)
   );
   NAND _155_ (
-    .A(valid_out_pre1),
-    .B(_117_),
+    .A(buffer[7]),
+    .B(_099_),
     .Y(_118_)
   );
   NAND _156_ (
-    .A(_115_),
-    .B(_118_),
-    .Y(_031_)
-  );
-  NOR _157_ (
-    .A(contador_BC[1]),
-    .B(contador_BC[0]),
+    .A(buffer[5]),
+    .B(buffer[4]),
     .Y(_119_)
   );
-  NAND _158_ (
-    .A(contador_BC[2]),
+  NOR _157_ (
+    .A(_118_),
     .B(_119_),
     .Y(_120_)
   );
-  NAND _159_ (
-    .A(_087_),
-    .B(_120_),
+  NAND _158_ (
+    .A(buffer[4]),
+    .B(_100_),
     .Y(_121_)
   );
-  NOT _160_ (
-    .A(_121_),
+  NAND _159_ (
+    .A(_099_),
+    .B(buffer[3]),
     .Y(_122_)
   );
+  NAND _160_ (
+    .A(buffer[5]),
+    .B(buffer[2]),
+    .Y(_123_)
+  );
   NOR _161_ (
-    .A(_113_),
-    .B(_121_),
-    .Y(_033_)
+    .A(_122_),
+    .B(_123_),
+    .Y(_124_)
   );
-  NAND _162_ (
-    .A(_112_),
-    .B(_122_),
-    .Y(_034_)
+  NOR _162_ (
+    .A(_098_),
+    .B(buffer[0]),
+    .Y(_125_)
   );
-  NOR _163_ (
-    .A(_103_),
-    .B(_033_),
-    .Y(_035_)
+  NAND _163_ (
+    .A(_124_),
+    .B(_125_),
+    .Y(_126_)
   );
-  NAND _164_ (
-    .A(_102_),
-    .B(_034_),
-    .Y(_036_)
+  NOR _164_ (
+    .A(_121_),
+    .B(_126_),
+    .Y(_127_)
   );
   NAND _165_ (
-    .A(contador_BC[1]),
-    .B(contador_BC[0]),
-    .Y(_037_)
+    .A(_117_),
+    .B(_120_),
+    .Y(_128_)
   );
-  NOT _166_ (
-    .A(_037_),
-    .Y(_038_)
+  NOR _166_ (
+    .A(_111_),
+    .B(_127_),
+    .Y(_129_)
   );
-  NOR _167_ (
-    .A(_036_),
-    .B(_037_),
-    .Y(_039_)
+  NAND _167_ (
+    .A(buffer[7]),
+    .B(_129_),
+    .Y(_130_)
   );
-  NOR _168_ (
-    .A(contador_BC[2]),
-    .B(_039_),
-    .Y(_040_)
+  NAND _168_ (
+    .A(_113_),
+    .B(_130_),
+    .Y(_031_)
   );
   NOR _169_ (
-    .A(active),
-    .B(_112_),
-    .Y(_041_)
+    .A(buffer[6]),
+    .B(_111_),
+    .Y(_131_)
   );
-  NOT _170_ (
-    .A(_041_),
-    .Y(_042_)
+  NOR _170_ (
+    .A(data_out[6]),
+    .B(_112_),
+    .Y(_132_)
   );
   NOR _171_ (
-    .A(_036_),
-    .B(_041_),
-    .Y(_043_)
-  );
-  NAND _172_ (
-    .A(_035_),
-    .B(_042_),
-    .Y(_044_)
-  );
-  NOR _173_ (
-    .A(_088_),
-    .B(_043_),
-    .Y(_045_)
-  );
-  NAND _174_ (
-    .A(reset),
-    .B(_044_),
-    .Y(_046_)
-  );
-  NAND _175_ (
-    .A(contador_BC[2]),
-    .B(_039_),
-    .Y(_047_)
-  );
-  NAND _176_ (
-    .A(_045_),
-    .B(_047_),
-    .Y(_048_)
-  );
-  NOR _177_ (
-    .A(_040_),
-    .B(_048_),
+    .A(_131_),
+    .B(_132_),
     .Y(_030_)
   );
-  NOR _178_ (
-    .A(contador_BC[1]),
-    .B(_035_),
-    .Y(_049_)
+  NAND _172_ (
+    .A(data_out[5]),
+    .B(_111_),
+    .Y(_033_)
   );
-  NOR _179_ (
-    .A(_119_),
-    .B(_038_),
-    .Y(_050_)
+  NAND _173_ (
+    .A(buffer[5]),
+    .B(_129_),
+    .Y(_034_)
   );
-  NAND _180_ (
-    .A(_041_),
-    .B(_050_),
-    .Y(_051_)
-  );
-  NAND _181_ (
-    .A(_035_),
-    .B(_051_),
-    .Y(_052_)
-  );
-  NAND _182_ (
-    .A(reset),
-    .B(_052_),
-    .Y(_053_)
-  );
-  NOR _183_ (
-    .A(_049_),
-    .B(_053_),
+  NAND _174_ (
+    .A(_033_),
+    .B(_034_),
     .Y(_029_)
   );
-  NOR _184_ (
-    .A(_089_),
-    .B(_035_),
-    .Y(_054_)
+  NAND _175_ (
+    .A(data_out[4]),
+    .B(_111_),
+    .Y(_035_)
   );
-  NOR _185_ (
-    .A(contador_BC[0]),
+  NAND _176_ (
+    .A(buffer[4]),
+    .B(_129_),
+    .Y(_036_)
+  );
+  NAND _177_ (
+    .A(_035_),
     .B(_036_),
-    .Y(_055_)
-  );
-  NOR _186_ (
-    .A(_054_),
-    .B(_055_),
-    .Y(_056_)
-  );
-  NOR _187_ (
-    .A(_046_),
-    .B(_056_),
     .Y(_028_)
   );
-  NAND _188_ (
-    .A(buffer[7]),
-    .B(_116_),
-    .Y(_057_)
+  NAND _178_ (
+    .A(data_out[3]),
+    .B(_111_),
+    .Y(_037_)
   );
-  NAND _189_ (
-    .A(data_out_pre1[7]),
-    .B(_117_),
-    .Y(_058_)
+  NAND _179_ (
+    .A(buffer[3]),
+    .B(_129_),
+    .Y(_038_)
   );
-  NAND _190_ (
-    .A(_057_),
-    .B(_058_),
+  NAND _180_ (
+    .A(_037_),
+    .B(_038_),
     .Y(_027_)
   );
-  NOR _191_ (
-    .A(data_out_pre1[6]),
-    .B(_104_),
-    .Y(_059_)
+  NAND _181_ (
+    .A(data_out[2]),
+    .B(_111_),
+    .Y(_039_)
   );
-  NOR _192_ (
-    .A(_088_),
-    .B(_090_),
-    .Y(_018_)
+  NAND _182_ (
+    .A(buffer[2]),
+    .B(_129_),
+    .Y(_040_)
   );
-  NOR _193_ (
-    .A(_117_),
-    .B(_018_),
-    .Y(_060_)
-  );
-  NOR _194_ (
-    .A(_059_),
-    .B(_060_),
+  NAND _183_ (
+    .A(_039_),
+    .B(_040_),
     .Y(_026_)
   );
-  NAND _195_ (
-    .A(data_out_pre1[5]),
-    .B(_117_),
-    .Y(_061_)
+  NOR _184_ (
+    .A(buffer[1]),
+    .B(_111_),
+    .Y(_041_)
   );
-  NOR _196_ (
-    .A(_088_),
-    .B(_091_),
-    .Y(_017_)
+  NOR _185_ (
+    .A(data_out[1]),
+    .B(_112_),
+    .Y(_042_)
   );
-  NAND _197_ (
-    .A(_114_),
-    .B(_017_),
-    .Y(_062_)
-  );
-  NAND _198_ (
-    .A(_061_),
-    .B(_062_),
+  NOR _186_ (
+    .A(_041_),
+    .B(_042_),
     .Y(_025_)
   );
-  NAND _199_ (
-    .A(data_out_pre1[4]),
-    .B(_117_),
-    .Y(_063_)
+  NOR _187_ (
+    .A(buffer[0]),
+    .B(_111_),
+    .Y(_043_)
   );
-  NOR _200_ (
-    .A(_088_),
-    .B(_092_),
-    .Y(_016_)
+  NOR _188_ (
+    .A(data_out[0]),
+    .B(_112_),
+    .Y(_044_)
   );
-  NAND _201_ (
-    .A(_114_),
-    .B(_016_),
-    .Y(_064_)
-  );
-  NAND _202_ (
-    .A(_063_),
-    .B(_064_),
+  NOR _189_ (
+    .A(_043_),
+    .B(_044_),
     .Y(_024_)
   );
-  NAND _203_ (
-    .A(data_out_pre1[3]),
-    .B(_117_),
-    .Y(_065_)
+  NAND _190_ (
+    .A(reset),
+    .B(valid_out),
+    .Y(_045_)
   );
-  NOR _204_ (
-    .A(_088_),
-    .B(_093_),
-    .Y(_015_)
+  NOR _191_ (
+    .A(_110_),
+    .B(_045_),
+    .Y(_046_)
   );
-  NAND _205_ (
-    .A(_114_),
-    .B(_015_),
-    .Y(_066_)
+  NOR _192_ (
+    .A(_129_),
+    .B(_046_),
+    .Y(_047_)
   );
-  NAND _206_ (
-    .A(_065_),
-    .B(_066_),
+  NOT _193_ (
+    .A(_047_),
     .Y(_023_)
   );
-  NAND _207_ (
-    .A(data_out_pre1[2]),
-    .B(_117_),
-    .Y(_067_)
+  NOR _194_ (
+    .A(contador_BC[1]),
+    .B(contador_BC[0]),
+    .Y(_048_)
+  );
+  NAND _195_ (
+    .A(contador_BC[2]),
+    .B(_048_),
+    .Y(_049_)
+  );
+  NAND _196_ (
+    .A(_097_),
+    .B(_049_),
+    .Y(_050_)
+  );
+  NOT _197_ (
+    .A(_050_),
+    .Y(_051_)
+  );
+  NOR _198_ (
+    .A(_127_),
+    .B(_050_),
+    .Y(_052_)
+  );
+  NAND _199_ (
+    .A(_128_),
+    .B(_051_),
+    .Y(_053_)
+  );
+  NOR _200_ (
+    .A(_109_),
+    .B(_052_),
+    .Y(_054_)
+  );
+  NAND _201_ (
+    .A(_108_),
+    .B(_053_),
+    .Y(_055_)
+  );
+  NAND _202_ (
+    .A(contador_BC[1]),
+    .B(contador_BC[0]),
+    .Y(_056_)
+  );
+  NOT _203_ (
+    .A(_056_),
+    .Y(_057_)
+  );
+  NOR _204_ (
+    .A(_055_),
+    .B(_056_),
+    .Y(_058_)
+  );
+  NOR _205_ (
+    .A(contador_BC[2]),
+    .B(_058_),
+    .Y(_059_)
+  );
+  NOR _206_ (
+    .A(active),
+    .B(_128_),
+    .Y(_060_)
+  );
+  NOT _207_ (
+    .A(_060_),
+    .Y(_061_)
   );
   NOR _208_ (
-    .A(_088_),
-    .B(_094_),
-    .Y(_014_)
+    .A(_055_),
+    .B(_060_),
+    .Y(_062_)
   );
   NAND _209_ (
-    .A(_114_),
-    .B(_014_),
-    .Y(_068_)
+    .A(_054_),
+    .B(_061_),
+    .Y(_063_)
   );
-  NAND _210_ (
-    .A(_067_),
-    .B(_068_),
-    .Y(_022_)
+  NOR _210_ (
+    .A(_101_),
+    .B(_062_),
+    .Y(_064_)
   );
-  NOR _211_ (
-    .A(data_out_pre1[1]),
-    .B(_104_),
-    .Y(_069_)
+  NAND _211_ (
+    .A(reset),
+    .B(_063_),
+    .Y(_065_)
   );
-  NOR _212_ (
-    .A(_088_),
-    .B(_095_),
-    .Y(_013_)
+  NAND _212_ (
+    .A(contador_BC[2]),
+    .B(_058_),
+    .Y(_066_)
   );
-  NOR _213_ (
-    .A(_117_),
-    .B(_013_),
-    .Y(_070_)
+  NAND _213_ (
+    .A(_064_),
+    .B(_066_),
+    .Y(_067_)
   );
   NOR _214_ (
-    .A(_069_),
-    .B(_070_),
-    .Y(_021_)
+    .A(_059_),
+    .B(_067_),
+    .Y(_022_)
   );
   NOR _215_ (
-    .A(data_out_pre1[0]),
-    .B(_104_),
-    .Y(_071_)
+    .A(contador_BC[1]),
+    .B(_054_),
+    .Y(_068_)
   );
   NOR _216_ (
-    .A(_088_),
-    .B(_096_),
-    .Y(_012_)
+    .A(_048_),
+    .B(_057_),
+    .Y(_069_)
   );
-  NOR _217_ (
-    .A(_117_),
-    .B(_012_),
+  NAND _217_ (
+    .A(_060_),
+    .B(_069_),
+    .Y(_070_)
+  );
+  NAND _218_ (
+    .A(_054_),
+    .B(_070_),
+    .Y(_071_)
+  );
+  NAND _219_ (
+    .A(reset),
+    .B(_071_),
     .Y(_072_)
   );
-  NOR _218_ (
-    .A(_071_),
+  NOR _220_ (
+    .A(_068_),
     .B(_072_),
+    .Y(_021_)
+  );
+  NOR _221_ (
+    .A(_102_),
+    .B(_054_),
+    .Y(_073_)
+  );
+  NOR _222_ (
+    .A(contador_BC[0]),
+    .B(_055_),
+    .Y(_074_)
+  );
+  NOR _223_ (
+    .A(_073_),
+    .B(_074_),
+    .Y(_075_)
+  );
+  NOR _224_ (
+    .A(_065_),
+    .B(_075_),
     .Y(_020_)
   );
-  NOR _219_ (
-    .A(_088_),
+  NOR _225_ (
+    .A(_101_),
     .B(counter_out[0]),
     .Y(_019_)
   );
-  NAND _220_ (
-    .A(reset),
-    .B(data_in),
-    .Y(_073_)
-  );
-  NOT _221_ (
-    .A(_073_),
-    .Y(_011_)
-  );
-  NAND _222_ (
-    .A(counter_out[0]),
-    .B(counter_out[1]),
-    .Y(_074_)
-  );
-  NOT _223_ (
-    .A(_074_),
-    .Y(_075_)
-  );
-  NAND _224_ (
-    .A(counter_out[2]),
-    .B(_075_),
+  NAND _226_ (
+    .A(buffer[6]),
+    .B(reset),
     .Y(_076_)
   );
-  NOT _225_ (
+  NOT _227_ (
     .A(_076_),
-    .Y(_077_)
-  );
-  NAND _226_ (
-    .A(counter_out[3]),
-    .B(_077_),
-    .Y(_078_)
-  );
-  NAND _227_ (
-    .A(reset),
-    .B(_103_),
-    .Y(_079_)
+    .Y(_018_)
   );
   NAND _228_ (
-    .A(_097_),
-    .B(_076_),
-    .Y(_080_)
+    .A(buffer[5]),
+    .B(reset),
+    .Y(_077_)
   );
-  NAND _229_ (
+  NOT _229_ (
+    .A(_077_),
+    .Y(_017_)
+  );
+  NAND _230_ (
+    .A(buffer[4]),
+    .B(reset),
+    .Y(_078_)
+  );
+  NOT _231_ (
     .A(_078_),
-    .B(_080_),
-    .Y(_081_)
-  );
-  NOR _230_ (
-    .A(_079_),
-    .B(_081_),
-    .Y(_010_)
-  );
-  NAND _231_ (
-    .A(_098_),
-    .B(_074_),
-    .Y(_082_)
+    .Y(_016_)
   );
   NAND _232_ (
-    .A(_076_),
-    .B(_082_),
-    .Y(_083_)
+    .A(buffer[3]),
+    .B(reset),
+    .Y(_079_)
   );
-  NOR _233_ (
+  NOT _233_ (
     .A(_079_),
-    .B(_083_),
-    .Y(_009_)
+    .Y(_015_)
   );
   NAND _234_ (
-    .A(reset),
-    .B(_074_),
-    .Y(_084_)
+    .A(buffer[2]),
+    .B(reset),
+    .Y(_080_)
   );
-  NOR _235_ (
-    .A(_099_),
-    .B(_084_),
-    .Y(_008_)
+  NOT _235_ (
+    .A(_080_),
+    .Y(_014_)
   );
-  NOR _236_ (
-    .A(active),
-    .B(_102_),
-    .Y(_085_)
+  NAND _236_ (
+    .A(buffer[1]),
+    .B(reset),
+    .Y(_081_)
   );
-  NAND _237_ (
-    .A(reset),
-    .B(_121_),
-    .Y(_086_)
+  NOT _237_ (
+    .A(_081_),
+    .Y(_013_)
   );
-  NOR _238_ (
-    .A(_085_),
-    .B(_086_),
-    .Y(_032_)
+  NAND _238_ (
+    .A(buffer[0]),
+    .B(reset),
+    .Y(_082_)
   );
   NOT _239_ (
+    .A(_082_),
+    .Y(_012_)
+  );
+  NAND _240_ (
+    .A(reset),
+    .B(data_in),
+    .Y(_083_)
+  );
+  NOT _241_ (
+    .A(_083_),
+    .Y(_011_)
+  );
+  NAND _242_ (
+    .A(counter_out[0]),
+    .B(counter_out[1]),
+    .Y(_084_)
+  );
+  NOT _243_ (
+    .A(_084_),
+    .Y(_085_)
+  );
+  NAND _244_ (
+    .A(counter_out[2]),
+    .B(_085_),
+    .Y(_086_)
+  );
+  NOT _245_ (
+    .A(_086_),
+    .Y(_087_)
+  );
+  NAND _246_ (
+    .A(counter_out[3]),
+    .B(_087_),
+    .Y(_088_)
+  );
+  NAND _247_ (
+    .A(reset),
+    .B(_109_),
+    .Y(_089_)
+  );
+  NAND _248_ (
+    .A(_103_),
+    .B(_086_),
+    .Y(_090_)
+  );
+  NAND _249_ (
+    .A(_088_),
+    .B(_090_),
+    .Y(_091_)
+  );
+  NOR _250_ (
+    .A(_089_),
+    .B(_091_),
+    .Y(_010_)
+  );
+  NAND _251_ (
+    .A(_104_),
+    .B(_084_),
+    .Y(_092_)
+  );
+  NAND _252_ (
+    .A(_086_),
+    .B(_092_),
+    .Y(_093_)
+  );
+  NOR _253_ (
+    .A(_089_),
+    .B(_093_),
+    .Y(_009_)
+  );
+  NAND _254_ (
+    .A(reset),
+    .B(_084_),
+    .Y(_094_)
+  );
+  NOR _255_ (
+    .A(_105_),
+    .B(_094_),
+    .Y(_008_)
+  );
+  NOR _256_ (
+    .A(active),
+    .B(_108_),
+    .Y(_095_)
+  );
+  NAND _257_ (
+    .A(reset),
+    .B(_050_),
+    .Y(_096_)
+  );
+  NOR _258_ (
+    .A(_095_),
+    .B(_096_),
+    .Y(_032_)
+  );
+  NOT _259_ (
     .A(clk_32f),
     .Y(_006_)
   );
-  NOT _240_ (
+  NOT _260_ (
     .A(clk_32f),
     .Y(_005_)
   );
-  NOT _241_ (
+  NOT _261_ (
     .A(clk_32f),
     .Y(_004_)
   );
-  NOT _242_ (
+  NOT _262_ (
     .A(clk_32f),
     .Y(_003_)
   );
-  NOT _243_ (
+  NOT _263_ (
     .A(clk_32f),
     .Y(_002_)
   );
-  NOT _244_ (
+  NOT _264_ (
     .A(clk_32f),
     .Y(_001_)
   );
-  NOT _245_ (
+  NOT _265_ (
     .A(clk_32f),
     .Y(_000_)
   );
-  (* src = "Serial_Paralelo_synth.v:87.1-92.4" *)
-  DFF _246_ (
-    .C(clk_4f),
-    .D(data_out_pre2[0]),
-    .Q(data_out[0])
-  );
-  (* src = "Serial_Paralelo_synth.v:87.1-92.4" *)
-  DFF _247_ (
-    .C(clk_4f),
-    .D(data_out_pre2[1]),
-    .Q(data_out[1])
-  );
-  (* src = "Serial_Paralelo_synth.v:87.1-92.4" *)
-  DFF _248_ (
-    .C(clk_4f),
-    .D(data_out_pre2[2]),
-    .Q(data_out[2])
-  );
-  (* src = "Serial_Paralelo_synth.v:87.1-92.4" *)
-  DFF _249_ (
-    .C(clk_4f),
-    .D(data_out_pre2[3]),
-    .Q(data_out[3])
-  );
-  (* src = "Serial_Paralelo_synth.v:87.1-92.4" *)
-  DFF _250_ (
-    .C(clk_4f),
-    .D(data_out_pre2[4]),
-    .Q(data_out[4])
-  );
-  (* src = "Serial_Paralelo_synth.v:87.1-92.4" *)
-  DFF _251_ (
-    .C(clk_4f),
-    .D(data_out_pre2[5]),
-    .Q(data_out[5])
-  );
-  (* src = "Serial_Paralelo_synth.v:87.1-92.4" *)
-  DFF _252_ (
-    .C(clk_4f),
-    .D(data_out_pre2[6]),
-    .Q(data_out[6])
-  );
-  (* src = "Serial_Paralelo_synth.v:87.1-92.4" *)
-  DFF _253_ (
-    .C(clk_4f),
-    .D(data_out_pre2[7]),
-    .Q(data_out[7])
-  );
-  (* src = "Serial_Paralelo_synth.v:87.1-92.4" *)
-  DFF _254_ (
-    .C(clk_4f),
-    .D(valid_out_pre2),
-    .Q(valid_out)
-  );
-  (* src = "Serial_Paralelo_synth.v:87.1-92.4" *)
-  DFF _255_ (
-    .C(clk_4f),
-    .D(data_out_pre1[0]),
-    .Q(data_out_pre2[0])
-  );
-  (* src = "Serial_Paralelo_synth.v:87.1-92.4" *)
-  DFF _256_ (
-    .C(clk_4f),
-    .D(data_out_pre1[1]),
-    .Q(data_out_pre2[1])
-  );
-  (* src = "Serial_Paralelo_synth.v:87.1-92.4" *)
-  DFF _257_ (
-    .C(clk_4f),
-    .D(data_out_pre1[2]),
-    .Q(data_out_pre2[2])
-  );
-  (* src = "Serial_Paralelo_synth.v:87.1-92.4" *)
-  DFF _258_ (
-    .C(clk_4f),
-    .D(data_out_pre1[3]),
-    .Q(data_out_pre2[3])
-  );
-  (* src = "Serial_Paralelo_synth.v:87.1-92.4" *)
-  DFF _259_ (
-    .C(clk_4f),
-    .D(data_out_pre1[4]),
-    .Q(data_out_pre2[4])
-  );
-  (* src = "Serial_Paralelo_synth.v:87.1-92.4" *)
-  DFF _260_ (
-    .C(clk_4f),
-    .D(data_out_pre1[5]),
-    .Q(data_out_pre2[5])
-  );
-  (* src = "Serial_Paralelo_synth.v:87.1-92.4" *)
-  DFF _261_ (
-    .C(clk_4f),
-    .D(data_out_pre1[6]),
-    .Q(data_out_pre2[6])
-  );
-  (* src = "Serial_Paralelo_synth.v:87.1-92.4" *)
-  DFF _262_ (
-    .C(clk_4f),
-    .D(data_out_pre1[7]),
-    .Q(data_out_pre2[7])
-  );
-  (* src = "Serial_Paralelo_synth.v:87.1-92.4" *)
-  DFF _263_ (
-    .C(clk_4f),
-    .D(valid_out_pre1),
-    .Q(valid_out_pre2)
-  );
-  (* src = "Serial_Paralelo_synth.v:44.1-85.4" *)
-  DFF _264_ (
+  (* src = "Serial_Paralelo_synth.v:44.1-84.4" *)
+  DFF _266_ (
     .C(clk_32f),
     .D(_008_),
     .Q(counter_out[1])
   );
-  (* src = "Serial_Paralelo_synth.v:44.1-85.4" *)
-  DFF _265_ (
+  (* src = "Serial_Paralelo_synth.v:44.1-84.4" *)
+  DFF _267_ (
     .C(clk_32f),
     .D(_009_),
     .Q(counter_out[2])
   );
-  (* src = "Serial_Paralelo_synth.v:44.1-85.4" *)
-  DFF _266_ (
+  (* src = "Serial_Paralelo_synth.v:44.1-84.4" *)
+  DFF _268_ (
     .C(clk_32f),
     .D(_010_),
     .Q(counter_out[3])
   );
   (* src = "Serial_Paralelo_synth.v:21.1-36.4" *)
-  DFF _267_ (
+  DFF _269_ (
     .C(_000_),
     .D(_011_),
     .Q(buffer[0])
   );
   (* src = "Serial_Paralelo_synth.v:21.1-36.4" *)
-  DFF _268_ (
+  DFF _270_ (
     .C(_001_),
     .D(_012_),
     .Q(buffer[1])
   );
   (* src = "Serial_Paralelo_synth.v:21.1-36.4" *)
-  DFF _269_ (
+  DFF _271_ (
     .C(_002_),
     .D(_013_),
     .Q(buffer[2])
   );
   (* src = "Serial_Paralelo_synth.v:21.1-36.4" *)
-  DFF _270_ (
+  DFF _272_ (
     .C(_003_),
     .D(_014_),
     .Q(buffer[3])
   );
   (* src = "Serial_Paralelo_synth.v:21.1-36.4" *)
-  DFF _271_ (
+  DFF _273_ (
     .C(_004_),
     .D(_015_),
     .Q(buffer[4])
   );
   (* src = "Serial_Paralelo_synth.v:21.1-36.4" *)
-  DFF _272_ (
+  DFF _274_ (
     .C(_005_),
     .D(_016_),
     .Q(buffer[5])
   );
   (* src = "Serial_Paralelo_synth.v:21.1-36.4" *)
-  DFF _273_ (
+  DFF _275_ (
     .C(_006_),
     .D(_017_),
     .Q(buffer[6])
   );
   (* src = "Serial_Paralelo_synth.v:21.1-36.4" *)
-  DFF _274_ (
+  DFF _276_ (
     .C(_007_),
     .D(_018_),
     .Q(buffer[7])
   );
-  (* src = "Serial_Paralelo_synth.v:44.1-85.4" *)
-  DFF _275_ (
+  (* src = "Serial_Paralelo_synth.v:44.1-84.4" *)
+  DFF _277_ (
     .C(clk_32f),
     .D(_019_),
     .Q(counter_out[0])
   );
-  (* src = "Serial_Paralelo_synth.v:44.1-85.4" *)
-  DFF _276_ (
-    .C(clk_32f),
-    .D(_020_),
-    .Q(data_out_pre1[0])
-  );
-  (* src = "Serial_Paralelo_synth.v:44.1-85.4" *)
-  DFF _277_ (
-    .C(clk_32f),
-    .D(_021_),
-    .Q(data_out_pre1[1])
-  );
-  (* src = "Serial_Paralelo_synth.v:44.1-85.4" *)
+  (* src = "Serial_Paralelo_synth.v:44.1-84.4" *)
   DFF _278_ (
     .C(clk_32f),
-    .D(_022_),
-    .Q(data_out_pre1[2])
-  );
-  (* src = "Serial_Paralelo_synth.v:44.1-85.4" *)
-  DFF _279_ (
-    .C(clk_32f),
-    .D(_023_),
-    .Q(data_out_pre1[3])
-  );
-  (* src = "Serial_Paralelo_synth.v:44.1-85.4" *)
-  DFF _280_ (
-    .C(clk_32f),
-    .D(_024_),
-    .Q(data_out_pre1[4])
-  );
-  (* src = "Serial_Paralelo_synth.v:44.1-85.4" *)
-  DFF _281_ (
-    .C(clk_32f),
-    .D(_025_),
-    .Q(data_out_pre1[5])
-  );
-  (* src = "Serial_Paralelo_synth.v:44.1-85.4" *)
-  DFF _282_ (
-    .C(clk_32f),
-    .D(_026_),
-    .Q(data_out_pre1[6])
-  );
-  (* src = "Serial_Paralelo_synth.v:44.1-85.4" *)
-  DFF _283_ (
-    .C(clk_32f),
-    .D(_027_),
-    .Q(data_out_pre1[7])
-  );
-  (* src = "Serial_Paralelo_synth.v:44.1-85.4" *)
-  DFF _284_ (
-    .C(clk_32f),
-    .D(_028_),
+    .D(_020_),
     .Q(contador_BC[0])
   );
-  (* src = "Serial_Paralelo_synth.v:44.1-85.4" *)
-  DFF _285_ (
+  (* src = "Serial_Paralelo_synth.v:44.1-84.4" *)
+  DFF _279_ (
     .C(clk_32f),
-    .D(_029_),
+    .D(_021_),
     .Q(contador_BC[1])
   );
-  (* src = "Serial_Paralelo_synth.v:44.1-85.4" *)
-  DFF _286_ (
+  (* src = "Serial_Paralelo_synth.v:44.1-84.4" *)
+  DFF _280_ (
     .C(clk_32f),
-    .D(_030_),
+    .D(_022_),
     .Q(contador_BC[2])
   );
-  (* src = "Serial_Paralelo_synth.v:44.1-85.4" *)
+  (* src = "Serial_Paralelo_synth.v:44.1-84.4" *)
+  DFF _281_ (
+    .C(clk_32f),
+    .D(_023_),
+    .Q(valid_out)
+  );
+  (* src = "Serial_Paralelo_synth.v:44.1-84.4" *)
+  DFF _282_ (
+    .C(clk_32f),
+    .D(_024_),
+    .Q(data_out[0])
+  );
+  (* src = "Serial_Paralelo_synth.v:44.1-84.4" *)
+  DFF _283_ (
+    .C(clk_32f),
+    .D(_025_),
+    .Q(data_out[1])
+  );
+  (* src = "Serial_Paralelo_synth.v:44.1-84.4" *)
+  DFF _284_ (
+    .C(clk_32f),
+    .D(_026_),
+    .Q(data_out[2])
+  );
+  (* src = "Serial_Paralelo_synth.v:44.1-84.4" *)
+  DFF _285_ (
+    .C(clk_32f),
+    .D(_027_),
+    .Q(data_out[3])
+  );
+  (* src = "Serial_Paralelo_synth.v:44.1-84.4" *)
+  DFF _286_ (
+    .C(clk_32f),
+    .D(_028_),
+    .Q(data_out[4])
+  );
+  (* src = "Serial_Paralelo_synth.v:44.1-84.4" *)
   DFF _287_ (
     .C(clk_32f),
-    .D(_031_),
-    .Q(valid_out_pre1)
+    .D(_029_),
+    .Q(data_out[5])
   );
-  (* src = "Serial_Paralelo_synth.v:44.1-85.4" *)
+  (* src = "Serial_Paralelo_synth.v:44.1-84.4" *)
   DFF _288_ (
+    .C(clk_32f),
+    .D(_030_),
+    .Q(data_out[6])
+  );
+  (* src = "Serial_Paralelo_synth.v:44.1-84.4" *)
+  DFF _289_ (
+    .C(clk_32f),
+    .D(_031_),
+    .Q(data_out[7])
+  );
+  (* src = "Serial_Paralelo_synth.v:44.1-84.4" *)
+  DFF _290_ (
     .C(clk_32f),
     .D(_032_),
     .Q(active)
   );
 endmodule
 
-(* src = "demux_striping_synth.v:1.1-57.10" *)
+(* src = "demux_striping_synth.v:1.1-56.10" *)
 module demux_striping_synth(clk_2f, reset_L, data_in, valid_in, data_out0, data_out1, valid_out_0, valid_out_1);
   wire _000_;
   wire _001_;
@@ -5050,403 +4991,403 @@ module demux_striping_synth(clk_2f, reset_L, data_in, valid_in, data_out0, data_
     .B(_303_),
     .Y(_066_)
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _608_ (
     .C(clk_2f),
     .D(_000_),
     .Q(selectorInterno)
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _609_ (
     .C(clk_2f),
     .D(_001_),
     .Q(data_out0[0])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _610_ (
     .C(clk_2f),
     .D(_002_),
     .Q(data_out0[1])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _611_ (
     .C(clk_2f),
     .D(_003_),
     .Q(data_out0[2])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _612_ (
     .C(clk_2f),
     .D(_004_),
     .Q(data_out0[3])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _613_ (
     .C(clk_2f),
     .D(_005_),
     .Q(data_out0[4])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _614_ (
     .C(clk_2f),
     .D(_006_),
     .Q(data_out0[5])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _615_ (
     .C(clk_2f),
     .D(_007_),
     .Q(data_out0[6])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _616_ (
     .C(clk_2f),
     .D(_008_),
     .Q(data_out0[7])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _617_ (
     .C(clk_2f),
     .D(_009_),
     .Q(data_out0[8])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _618_ (
     .C(clk_2f),
     .D(_010_),
     .Q(data_out0[9])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _619_ (
     .C(clk_2f),
     .D(_011_),
     .Q(data_out0[10])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _620_ (
     .C(clk_2f),
     .D(_012_),
     .Q(data_out0[11])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _621_ (
     .C(clk_2f),
     .D(_013_),
     .Q(data_out0[12])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _622_ (
     .C(clk_2f),
     .D(_014_),
     .Q(data_out0[13])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _623_ (
     .C(clk_2f),
     .D(_015_),
     .Q(data_out0[14])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _624_ (
     .C(clk_2f),
     .D(_016_),
     .Q(data_out0[15])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _625_ (
     .C(clk_2f),
     .D(_017_),
     .Q(data_out0[16])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _626_ (
     .C(clk_2f),
     .D(_018_),
     .Q(data_out0[17])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _627_ (
     .C(clk_2f),
     .D(_019_),
     .Q(data_out0[18])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _628_ (
     .C(clk_2f),
     .D(_020_),
     .Q(data_out0[19])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _629_ (
     .C(clk_2f),
     .D(_021_),
     .Q(data_out0[20])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _630_ (
     .C(clk_2f),
     .D(_022_),
     .Q(data_out0[21])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _631_ (
     .C(clk_2f),
     .D(_023_),
     .Q(data_out0[22])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _632_ (
     .C(clk_2f),
     .D(_024_),
     .Q(data_out0[23])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _633_ (
     .C(clk_2f),
     .D(_025_),
     .Q(data_out0[24])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _634_ (
     .C(clk_2f),
     .D(_026_),
     .Q(data_out0[25])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _635_ (
     .C(clk_2f),
     .D(_027_),
     .Q(data_out0[26])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _636_ (
     .C(clk_2f),
     .D(_028_),
     .Q(data_out0[27])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _637_ (
     .C(clk_2f),
     .D(_029_),
     .Q(data_out0[28])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _638_ (
     .C(clk_2f),
     .D(_030_),
     .Q(data_out0[29])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _639_ (
     .C(clk_2f),
     .D(_031_),
     .Q(data_out0[30])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _640_ (
     .C(clk_2f),
     .D(_032_),
     .Q(data_out0[31])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _641_ (
     .C(clk_2f),
     .D(_033_),
     .Q(data_out1[0])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _642_ (
     .C(clk_2f),
     .D(_034_),
     .Q(data_out1[1])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _643_ (
     .C(clk_2f),
     .D(_035_),
     .Q(data_out1[2])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _644_ (
     .C(clk_2f),
     .D(_036_),
     .Q(data_out1[3])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _645_ (
     .C(clk_2f),
     .D(_037_),
     .Q(data_out1[4])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _646_ (
     .C(clk_2f),
     .D(_038_),
     .Q(data_out1[5])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _647_ (
     .C(clk_2f),
     .D(_039_),
     .Q(data_out1[6])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _648_ (
     .C(clk_2f),
     .D(_040_),
     .Q(data_out1[7])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _649_ (
     .C(clk_2f),
     .D(_041_),
     .Q(data_out1[8])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _650_ (
     .C(clk_2f),
     .D(_042_),
     .Q(data_out1[9])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _651_ (
     .C(clk_2f),
     .D(_043_),
     .Q(data_out1[10])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _652_ (
     .C(clk_2f),
     .D(_044_),
     .Q(data_out1[11])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _653_ (
     .C(clk_2f),
     .D(_045_),
     .Q(data_out1[12])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _654_ (
     .C(clk_2f),
     .D(_046_),
     .Q(data_out1[13])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _655_ (
     .C(clk_2f),
     .D(_047_),
     .Q(data_out1[14])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _656_ (
     .C(clk_2f),
     .D(_048_),
     .Q(data_out1[15])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _657_ (
     .C(clk_2f),
     .D(_049_),
     .Q(data_out1[16])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _658_ (
     .C(clk_2f),
     .D(_050_),
     .Q(data_out1[17])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _659_ (
     .C(clk_2f),
     .D(_051_),
     .Q(data_out1[18])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _660_ (
     .C(clk_2f),
     .D(_052_),
     .Q(data_out1[19])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _661_ (
     .C(clk_2f),
     .D(_053_),
     .Q(data_out1[20])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _662_ (
     .C(clk_2f),
     .D(_054_),
     .Q(data_out1[21])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _663_ (
     .C(clk_2f),
     .D(_055_),
     .Q(data_out1[22])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _664_ (
     .C(clk_2f),
     .D(_056_),
     .Q(data_out1[23])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _665_ (
     .C(clk_2f),
     .D(_057_),
     .Q(data_out1[24])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _666_ (
     .C(clk_2f),
     .D(_058_),
     .Q(data_out1[25])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _667_ (
     .C(clk_2f),
     .D(_059_),
     .Q(data_out1[26])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _668_ (
     .C(clk_2f),
     .D(_060_),
     .Q(data_out1[27])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _669_ (
     .C(clk_2f),
     .D(_061_),
     .Q(data_out1[28])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _670_ (
     .C(clk_2f),
     .D(_062_),
     .Q(data_out1[29])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _671_ (
     .C(clk_2f),
     .D(_063_),
     .Q(data_out1[30])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _672_ (
     .C(clk_2f),
     .D(_064_),
     .Q(data_out1[31])
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _673_ (
     .C(clk_2f),
     .D(_065_),
     .Q(valid_out_0)
   );
-  (* src = "demux_striping_synth.v:13.5-55.8" *)
+  (* src = "demux_striping_synth.v:13.5-54.8" *)
   DFF _674_ (
     .C(clk_2f),
     .D(_066_),
@@ -6178,8 +6119,8 @@ module module_PS_synth(clk_32f, reset_L, valid_in_PS, data_in_PS, data_out_PS);
     .Y(_024_)
   );
   NAND _079_ (
-    .A(counter[0]),
-    .B(counter[1]),
+    .A(counter[1]),
+    .B(counter[0]),
     .Y(_025_)
   );
   NOT _080_ (
@@ -6197,8 +6138,8 @@ module module_PS_synth(clk_32f, reset_L, valid_in_PS, data_in_PS, data_out_PS);
     .Y(_028_)
   );
   NOR _083_ (
-    .A(counter[0]),
-    .B(counter[1]),
+    .A(counter[1]),
+    .B(counter[0]),
     .Y(_029_)
   );
   NOR _084_ (
@@ -7843,7 +7784,7 @@ module phy_synth(clk_f, clk_2f, clk_4f, clk_32f, reset_L, active_lane0, active_l
   assign valid_out = valid_out_phy_synthrx;
 endmodule
 
-(* src = "phy_synth_rx_synth.v:1.1-127.10" *)
+(* src = "phy_synth_rx_synth.v:1.1-130.10" *)
 module phy_synth_rx_synth(clk_f, clk_2f, clk_4f, clk_32f, data_in0, data_in1, reset, data_out, valid_out, active0, active1);
   (* src = "phy_synth_rx_synth.v:11.16-11.23" *)
   output active0;
@@ -7865,8 +7806,6 @@ module phy_synth_rx_synth(clk_f, clk_2f, clk_4f, clk_32f, data_in0, data_in1, re
   input data_in0;
   (* src = "phy_synth_rx_synth.v:7.11-7.19" *)
   input data_in1;
-  (* src = "phy_synth_rx_synth.v:27.11-27.21" *)
-  wire [31:0] data_lane0;
   (* src = "phy_synth_rx_synth.v:9.23-9.31" *)
   output [31:0] data_out;
   (* src = "phy_synth_rx_synth.v:21.12-21.26" *)
@@ -7881,14 +7820,8 @@ module phy_synth_rx_synth(clk_f, clk_2f, clk_4f, clk_32f, data_in0, data_in1, re
   wire [7:0] salida_sp0;
   (* src = "phy_synth_rx_synth.v:14.24-14.34" *)
   wire [7:0] salida_sp1;
-  (* src = "phy_synth_rx_synth.v:53.10-53.23" *)
-  wire [7:0] salida_sp1_a1;
-  (* src = "phy_synth_rx_synth.v:54.10-54.23" *)
-  wire [7:0] salida_sp1_a2;
   (* src = "phy_synth_rx_synth.v:18.13-18.31" *)
   wire [31:0] salida_unstripping;
-  (* src = "phy_synth_rx_synth.v:28.5-28.16" *)
-  wire valid_lane0;
   (* src = "phy_synth_rx_synth.v:17.6-17.14" *)
   wire valid_m0;
   (* src = "phy_synth_rx_synth.v:17.16-17.24" *)
@@ -7901,122 +7834,10 @@ module phy_synth_rx_synth(clk_f, clk_2f, clk_4f, clk_32f, data_in0, data_in1, re
   wire valid_sp0;
   (* src = "phy_synth_rx_synth.v:15.17-15.26" *)
   wire valid_sp1;
-  (* src = "phy_synth_rx_synth.v:55.5-55.17" *)
-  wire valid_sp1_a1;
-  (* src = "phy_synth_rx_synth.v:56.5-56.17" *)
-  wire valid_sp1_a2;
   (* src = "phy_synth_rx_synth.v:19.6-19.23" *)
   wire valid_unstripping;
-  (* src = "phy_synth_rx_synth.v:58.1-63.4" *)
-  DFF _00_ (
-    .C(clk_4f),
-    .D(salida_sp1[0]),
-    .Q(salida_sp1_a1[0])
-  );
-  (* src = "phy_synth_rx_synth.v:58.1-63.4" *)
-  DFF _01_ (
-    .C(clk_4f),
-    .D(salida_sp1[1]),
-    .Q(salida_sp1_a1[1])
-  );
-  (* src = "phy_synth_rx_synth.v:58.1-63.4" *)
-  DFF _02_ (
-    .C(clk_4f),
-    .D(salida_sp1[2]),
-    .Q(salida_sp1_a1[2])
-  );
-  (* src = "phy_synth_rx_synth.v:58.1-63.4" *)
-  DFF _03_ (
-    .C(clk_4f),
-    .D(salida_sp1[3]),
-    .Q(salida_sp1_a1[3])
-  );
-  (* src = "phy_synth_rx_synth.v:58.1-63.4" *)
-  DFF _04_ (
-    .C(clk_4f),
-    .D(salida_sp1[4]),
-    .Q(salida_sp1_a1[4])
-  );
-  (* src = "phy_synth_rx_synth.v:58.1-63.4" *)
-  DFF _05_ (
-    .C(clk_4f),
-    .D(salida_sp1[5]),
-    .Q(salida_sp1_a1[5])
-  );
-  (* src = "phy_synth_rx_synth.v:58.1-63.4" *)
-  DFF _06_ (
-    .C(clk_4f),
-    .D(salida_sp1[6]),
-    .Q(salida_sp1_a1[6])
-  );
-  (* src = "phy_synth_rx_synth.v:58.1-63.4" *)
-  DFF _07_ (
-    .C(clk_4f),
-    .D(salida_sp1[7]),
-    .Q(salida_sp1_a1[7])
-  );
-  (* src = "phy_synth_rx_synth.v:58.1-63.4" *)
-  DFF _08_ (
-    .C(clk_4f),
-    .D(salida_sp1_a1[0]),
-    .Q(salida_sp1_a2[0])
-  );
-  (* src = "phy_synth_rx_synth.v:58.1-63.4" *)
-  DFF _09_ (
-    .C(clk_4f),
-    .D(salida_sp1_a1[1]),
-    .Q(salida_sp1_a2[1])
-  );
-  (* src = "phy_synth_rx_synth.v:58.1-63.4" *)
-  DFF _10_ (
-    .C(clk_4f),
-    .D(salida_sp1_a1[2]),
-    .Q(salida_sp1_a2[2])
-  );
-  (* src = "phy_synth_rx_synth.v:58.1-63.4" *)
-  DFF _11_ (
-    .C(clk_4f),
-    .D(salida_sp1_a1[3]),
-    .Q(salida_sp1_a2[3])
-  );
-  (* src = "phy_synth_rx_synth.v:58.1-63.4" *)
-  DFF _12_ (
-    .C(clk_4f),
-    .D(salida_sp1_a1[4]),
-    .Q(salida_sp1_a2[4])
-  );
-  (* src = "phy_synth_rx_synth.v:58.1-63.4" *)
-  DFF _13_ (
-    .C(clk_4f),
-    .D(salida_sp1_a1[5]),
-    .Q(salida_sp1_a2[5])
-  );
-  (* src = "phy_synth_rx_synth.v:58.1-63.4" *)
-  DFF _14_ (
-    .C(clk_4f),
-    .D(salida_sp1_a1[6]),
-    .Q(salida_sp1_a2[6])
-  );
-  (* src = "phy_synth_rx_synth.v:58.1-63.4" *)
-  DFF _15_ (
-    .C(clk_4f),
-    .D(salida_sp1_a1[7]),
-    .Q(salida_sp1_a2[7])
-  );
-  (* src = "phy_synth_rx_synth.v:58.1-63.4" *)
-  DFF _16_ (
-    .C(clk_4f),
-    .D(valid_sp1),
-    .Q(valid_sp1_a1)
-  );
-  (* src = "phy_synth_rx_synth.v:58.1-63.4" *)
-  DFF _17_ (
-    .C(clk_4f),
-    .D(valid_sp1_a1),
-    .Q(valid_sp1_a2)
-  );
   (* module_not_derived = 32'd1 *)
-  (* src = "phy_synth_rx_synth.v:110.14-118.44" *)
+  (* src = "phy_synth_rx_synth.v:113.14-121.44" *)
   module_Flops_synth flops (
     .clk_2f(clk_2f),
     .data_in(salida_unstripping),
@@ -8026,17 +7847,7 @@ module phy_synth_rx_synth(clk_f, clk_2f, clk_4f, clk_32f, data_in0, data_in1, re
     .valid_out_Flops(valid_out_phy_synthrx)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "phy_synth_rx_synth.v:87.14-95.42" *)
-  module_Flops_synth flops0_striping (
-    .clk_2f(clk_2f),
-    .data_in(salida_mux8_32_0),
-    .data_out_Flops(data_lane0),
-    .reset_L(reset),
-    .valid_in(valid_m0),
-    .valid_out_Flops(valid_lane0)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "phy_synth_rx_synth.v:65.9-74.22" *)
+  (* src = "phy_synth_rx_synth.v:64.9-73.22" *)
   Mux8_32_synth mux8_32_0 (
     .clk_4f(clk_4f),
     .clk_f(clk_f),
@@ -8047,30 +7858,30 @@ module phy_synth_rx_synth(clk_f, clk_2f, clk_4f, clk_32f, data_in0, data_in1, re
     .valid_out(valid_m0)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "phy_synth_rx_synth.v:76.9-85.22" *)
+  (* src = "phy_synth_rx_synth.v:75.9-84.22" *)
   Mux8_32_synth mux8_32_1 (
     .clk_4f(clk_4f),
     .clk_f(clk_f),
-    .data_in(salida_sp1_a2),
+    .data_in(salida_sp1),
     .data_out(salida_mux8_32_1),
     .reset(reset),
-    .valid_in(valid_sp1_a2),
+    .valid_in(valid_sp1),
     .valid_out(valid_m1)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "phy_synth_rx_synth.v:98.16-108.27" *)
+  (* src = "phy_synth_rx_synth.v:101.16-111.27" *)
   mux_unstriping_synth mux_unstriping_synth0 (
     .clk_2f(clk_2f),
-    .data_in0(data_lane0),
+    .data_in0(salida_mux8_32_0),
     .data_in1(salida_mux8_32_1),
     .data_out(salida_unstripping),
     .reset_L(reset),
-    .valid_in0(valid_lane0),
+    .valid_in0(valid_m0),
     .valid_in1(valid_m1),
     .valid_out(valid_unstripping)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "phy_synth_rx_synth.v:30.17-39.24" *)
+  (* src = "phy_synth_rx_synth.v:29.17-38.24" *)
   Serial_Paralelo_synth sp0 (
     .active(active_lane0),
     .clk_32f(clk_32f),
@@ -8081,7 +7892,7 @@ module phy_synth_rx_synth(clk_f, clk_2f, clk_4f, clk_32f, data_in0, data_in1, re
     .valid_out(valid_sp0)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "phy_synth_rx_synth.v:41.17-50.24" *)
+  (* src = "phy_synth_rx_synth.v:40.17-49.24" *)
   Serial_Paralelo_synth sp1 (
     .active(active_lane1),
     .clk_32f(clk_32f),
@@ -8097,7 +7908,7 @@ module phy_synth_rx_synth(clk_f, clk_2f, clk_4f, clk_32f, data_in0, data_in1, re
   assign valid_out = valid_out_phy_synthrx;
 endmodule
 
-(* src = "phy_synth_tx_synth.v:1.1-116.10" *)
+(* src = "phy_synth_tx_synth.v:1.1-129.10" *)
 module phy_synth_tx_synth(clk_f, clk_2f, clk_4f, clk_32f, reset_L, active_lane0, active_lane1, valid_in, data_in, data_out_lane0, data_out_lane1, data_out_Recirc_Retorno);
   wire _0_;
   (* src = "phy_synth_tx_synth.v:37.6-37.12" *)
@@ -8140,6 +7951,8 @@ module phy_synth_tx_synth(clk_f, clk_2f, clk_4f, clk_32f, reset_L, active_lane0,
   output data_out_lane0;
   (* src = "phy_synth_tx_synth.v:12.16-12.30" *)
   output data_out_lane1;
+  (* src = "phy_synth_tx_synth.v:72.12-72.31" *)
+  wire [31:0] data_striping_lane0;
   (* src = "phy_synth_tx_synth.v:6.11-6.18" *)
   input reset_L;
   (* src = "phy_synth_tx_synth.v:9.11-9.19" *)
@@ -8156,6 +7969,8 @@ module phy_synth_tx_synth(clk_f, clk_2f, clk_4f, clk_32f, reset_L, active_lane0,
   wire valid_out_demux_striping_synth_lane0;
   (* src = "phy_synth_tx_synth.v:26.6-26.36" *)
   wire valid_out_demux_striping_synth_lane1;
+  (* src = "phy_synth_tx_synth.v:73.6-73.26" *)
+  wire valid_striping_lane0;
   NAND _1_ (
     .A(active_lane0),
     .B(active_lane1),
@@ -8188,7 +8003,7 @@ module phy_synth_tx_synth(clk_f, clk_2f, clk_4f, clk_32f, reset_L, active_lane0,
     .valid_out_Flops(valid_out_Flops)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "phy_synth_tx_synth.v:92.11-99.44" *)
+  (* src = "phy_synth_tx_synth.v:105.11-112.44" *)
   module_PS_synth Paralelo_serial_lane0 (
     .clk_32f(clk_32f),
     .data_in_PS(data_out_32_8_lane0),
@@ -8197,7 +8012,7 @@ module phy_synth_tx_synth(clk_f, clk_2f, clk_4f, clk_32f, reset_L, active_lane0,
     .valid_in_PS(valid_out_32_8_lane0)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "phy_synth_tx_synth.v:101.11-108.44" *)
+  (* src = "phy_synth_tx_synth.v:114.11-121.44" *)
   module_PS_synth Paralelo_serial_lane1 (
     .clk_32f(clk_32f),
     .data_in_PS(data_out_32_8_lane1),
@@ -8216,17 +8031,17 @@ module phy_synth_tx_synth(clk_f, clk_2f, clk_4f, clk_32f, reset_L, active_lane0,
     .valid_out_Recir(valid_out_Recir)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "phy_synth_tx_synth.v:72.11-80.50" *)
+  (* src = "phy_synth_tx_synth.v:85.11-93.40" *)
   Demux32_8_synth demux32_8_lane0 (
     .clk_4f(clk_4f),
     .clk_f(clk_f),
-    .data_in(data_out_demux_striping_synth_lane0),
+    .data_in(data_striping_lane0),
     .data_out(data_out_32_8_lane0),
-    .valid_in(valid_out_demux_striping_synth_lane0),
+    .valid_in(valid_striping_lane0),
     .valid_out(valid_out_32_8_lane0)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "phy_synth_tx_synth.v:82.11-90.50" *)
+  (* src = "phy_synth_tx_synth.v:95.11-103.50" *)
   Demux32_8_synth demux32_8_lane1 (
     .clk_4f(clk_4f),
     .clk_f(clk_f),
@@ -8234,6 +8049,16 @@ module phy_synth_tx_synth(clk_f, clk_2f, clk_4f, clk_32f, reset_L, active_lane0,
     .data_out(data_out_32_8_lane1),
     .valid_in(valid_out_demux_striping_synth_lane1),
     .valid_out(valid_out_32_8_lane1)
+  );
+  (* module_not_derived = 32'd1 *)
+  (* src = "phy_synth_tx_synth.v:75.14-83.54" *)
+  module_Flops_synth flop_strinping (
+    .clk_2f(clk_2f),
+    .data_in(data_out_demux_striping_synth_lane0),
+    .data_out_Flops(data_striping_lane0),
+    .reset_L(reset_L),
+    .valid_in(valid_out_demux_striping_synth_lane0),
+    .valid_out_Flops(valid_striping_lane0)
   );
   assign data_out_Recirc_Retorno = data_out_Retorno;
   assign data_out_lane0 = data_out_PS_lane0;
