@@ -64,7 +64,7 @@ module probador (
             @(posedge clk_32f);
             data_in0 <= data_in0 + 'b0;
             // data_in1 <= data_in1 + 'b0;
-            data_in1 <= data_in0;
+            data_in1 <= data_in1+'hA2;
             @(posedge clk_32f);
             data_in0 <= 'b0;
             // data_in1 <= 'b0;
@@ -83,31 +83,34 @@ module probador (
             data_in1 <= data_in0;
         end
 
-        // Se envia el codigo HEX(BC) SOLO UNA VEZ
-        @(posedge clk_32f);
-        data_in0 <= 'b1;
-        data_in1 <= 'b1;
-        @(posedge clk_32f);
-        data_in0 <= 'b0;
-        data_in1 <= 'b0;
-        @(posedge clk_32f);
-        data_in0 <= 'b1;
-        data_in1 <= 'b1;
-        @(posedge clk_32f);
-        data_in0 <= 'b1;
-        data_in1 <= 'b1;
-        @(posedge clk_32f);
-        data_in0 <= 'b1;
-        data_in1 <= 'b1;
-        @(posedge clk_32f);
-        data_in0 <= 'b1;
-        data_in1 <= 'b1;
-        @(posedge clk_32f);
-        data_in0 <= 'b0;
-        data_in1 <= 'b0;
-        @(posedge clk_32f);
-        data_in0 <= 'b0;
-        data_in1 <= 'b0;
+        repeat (5) begin
+            // Se envia el codigo HEX(BC) SOLO UNA VEZ
+            @(posedge clk_32f);
+            data_in0 <= 'b1;
+            data_in1 <= 'b1;
+            @(posedge clk_32f);
+            data_in0 <= 'b0;
+            data_in1 <= 'b0;
+            @(posedge clk_32f);
+            data_in0 <= 'b1;
+            data_in1 <= 'b1;
+            @(posedge clk_32f);
+            data_in0 <= 'b1;
+            data_in1 <= 'b1;
+            @(posedge clk_32f);
+            data_in0 <= 'b1;
+            data_in1 <= 'b1;
+            @(posedge clk_32f);
+            data_in0 <= 'b1;
+            data_in1 <= 'b1;
+            @(posedge clk_32f);
+            data_in0 <= 'b0;
+            data_in1 <= 'b0;
+            @(posedge clk_32f);
+            data_in0 <= 'b0;
+            data_in1 <= 'b0;
+        end
+        
 
         // Se envia otra cosa
         repeat (16) begin
@@ -137,33 +140,35 @@ module probador (
             data_in1 <= data_in0;
         end
 
-        // Se envia el codigo HEX(BC) SOLO UNA VEZ
-        @(posedge clk_32f);
-        data_in0 <= 'b1;
-        data_in1 <= 'b1;
-        @(posedge clk_32f);
-        data_in0 <= 'b0;
-        data_in1 <= 'b0;
-        @(posedge clk_32f);
-        data_in0 <= 'b1;
-        data_in1 <= 'b1;
-        @(posedge clk_32f);
-        data_in0 <= 'b1;
-        data_in1 <= 'b1;
-        @(posedge clk_32f);
-        data_in0 <= 'b1;
-        data_in1 <= 'b1;
-        @(posedge clk_32f);
-        data_in0 <= 'b1;
-        data_in1 <= 'b1;
-        @(posedge clk_32f);
-        data_in0 <= 'b0;
-        data_in1 <= 'b0;
-        @(posedge clk_32f);
-        data_in0 <= 'b0;
-        data_in1 <= 'b0;
+        repeat (10) begin
+            // Se envia el codigo HEX(BC) SOLO UNA VEZ
+            @(posedge clk_32f);
+            data_in0 <= 'b1;
+            data_in1 <= 'b1;
+            @(posedge clk_32f);
+            data_in0 <= 'b0;
+            data_in1 <= 'b0;
+            @(posedge clk_32f);
+            data_in0 <= 'b1;
+            data_in1 <= 'b1;
+            @(posedge clk_32f);
+            data_in0 <= 'b1;
+            data_in1 <= 'b1;
+            @(posedge clk_32f);
+            data_in0 <= 'b1;
+            data_in1 <= 'b1;
+            @(posedge clk_32f);
+            data_in0 <= 'b1;
+            data_in1 <= 'b1;
+            @(posedge clk_32f);
+            data_in0 <= 'b0;
+            data_in1 <= 'b0;
+            @(posedge clk_32f);
+            data_in0 <= 'b0;
+            data_in1 <= 'b0;
+        end
 
-        repeat (96) begin
+        repeat (8) begin
             @(posedge clk_32f);
         end
         
