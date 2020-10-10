@@ -9,8 +9,8 @@
 
 module BPruebaparte1;
 
-	wire [31:0] data_out_Flops, data_out_Recir, data_out_Retorno, data_out_Flops_Sint, data_out_Recir_Sint, data_out_Retorno_Sint, data_in_Flops, data_in_Recir;
-	wire valid_out_Flops, valid_out_Flops_Sint, clk_Flops, reset_L, valid_in_Flops,  valid_in_Flops_Sint, valid_out_Recir, active, valid_in_Recir;
+	wire [31:0] data_out_Flops, data_out_Recir, data_out_Retorno, data_out_Flops_Sint, data_out_Recir_Sint, data_out_Retorno_Sint, data_in, data_in_Recir;
+	wire valid_out_Flops, valid_out_Flops_Sint, clk_2f, reset_L, valid_in_Flops,  valid_in_Flops_Sint, valid_out_Recir, active, valid_in_Recir;
 	
 
 	module_Flops Flop_(		/*AUTOINST*/
@@ -18,10 +18,10 @@ module BPruebaparte1;
 			   .valid_out_Flops	(valid_out_Flops),
 			   .data_out_Flops	(data_out_Flops[31:0]),
 			   // Inputs
-			   .clk_Flops		(clk_Flops),
+			   .clk_2f		(clk_2f),
 			   .reset_L		(reset_L),
-			   .valid_in_Flops	(valid_in_Flops),
-			   .data_in_Flops	(data_in_Flops[31:0]));
+			   .valid_in		(valid_in),
+			   .data_in		(data_in[31:0]));
 
 	module_Recirculacion Recir_(		/*AUTOINST*/
 				    // Outputs
@@ -38,10 +38,10 @@ module BPruebaparte1;
 				.data_out_Flops_Sint(data_out_Flops_Sint[31:0]),
 				.valid_out_Flops_Sint(valid_out_Flops_Sint),
 				// Inputs
-				.clk_Flops	(clk_Flops),
-				.data_in_Flops	(data_in_Flops[31:0]),
+				.clk_2f		(clk_2f),
+				.data_in	(data_in[31:0]),
 				.reset_L	(reset_L),
-				.valid_in_Flops	(valid_in_Flops));
+				.valid_in	(valid_in));
 				
 	
 	module_Recirculacion_Sint Sint_2(		/*AUTOINST*/
@@ -59,11 +59,11 @@ module BPruebaparte1;
 				 // Outputs
 				 .reset_L		(reset_L),
 				 .active		(active),
-				 .valid_in_Flops	(valid_in_Flops),
+				 .valid_in		(valid_in),
 				 .valid_in_Recir	(valid_in_Recir),
-				 .data_in_Flops		(data_in_Flops[31:0]),
+				 .data_in		(data_in[31:0]),
 				 .data_in_Recir		(data_in_Recir[31:0]),
-				 .clk_Flops		(clk_Flops),
+				 .clk_2f		(clk_2f),
 				 // Inputs
 				 .data_out_Flops	(data_out_Flops[31:0]),
 				 .data_out_Retorno	(data_out_Retorno[31:0]),
